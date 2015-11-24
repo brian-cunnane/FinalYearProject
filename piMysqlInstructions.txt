@@ -1,0 +1,17 @@
+steps to create mysql db on raspberry pi
+run sudo apt-get update
+run sudo apt-get install mysql-webserver python-mysqldb
+add a root access password if desired
+after install run mysql -u root -p and enter password
+the prompt changes to mysql>
+Take note of the greeting. All commands must end with ";" or "/g"
+run CREATE DATABASE <databasename>;
+	CREATE USER '<username>'@'localhost' IDENTIFIED BY '<PASSWORD>';
+	GRANT PRIVILEGES ON <databasename> TO '<username>'@'localhost';
+	FLUSH PRIVILEGES;
+	QUIT
+	
+log in as monitor
+mysql -u monitor -p password
+CREATE TABLE <tablename>(<columnname>);
+QUIT
