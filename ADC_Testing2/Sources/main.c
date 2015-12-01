@@ -1,6 +1,6 @@
 
 /***********************************************************************************************
- * program to generate interrupt when switch is pushed
+ * program to read temp from external sensor
  *
  **********************************************************************************************/
 #include "fsl_device_registers.h"
@@ -18,16 +18,10 @@ int main(void)
     //Initialise the FRDM-KL26Z Board
 	hardware_init();
 	adc0_config(SW_TRIGGER,BIT16,ADC_INTERRUPT_ENABLED);
-	PIT_Configure_interrupt_mode(2);
+	PIT_Configure_interrupt_mode(2);// 2 second interrupt
 	PRINTF("~~~Starting ADC read~~~\r\n");
     while(1) {
-    	/*int sample = read_adc0(ch);
-    	PRINTF("\rSAMPLE IS: %04d",sample);
-    	for(i = 0; i < 10000000; i ++);
-    	for(i = 0; i < 10000000; i ++);
-    	for(i = 0; i < 10000000; i ++);
-    	for(i = 0; i < 10000000; i ++);
-*/
+
     }
     /* Never leave main */
     return 0;
@@ -35,7 +29,8 @@ int main(void)
 }
 void ADC0_IRQHandler()
 {
-	int sample = read_adc0(ch);
+	//int sample = read_adc0(ch);
+	int sample = ADC0_RA;
 	float vtemp = (float)sample/65536 *3.3;
 	float temp = vtemp * 100; // 10 mV per degree so multiply by 100
 	PRINTF("\rSAMPLE IS: %02d",(unsigned int)temp);
@@ -44,6 +39,8 @@ void PIT_IRQHandler()
 {
 	PIT_TFLG0 = 0x01ul;
 	ADC0_SC1A = 0x4Fu;
+	ADC0_SC1A &= 0xFFFFFFE0;
+	ADC0_SC1A |= ch;//15
 }
 ////////////////////////////////////////////////////////////////////////////////
 // EOF
