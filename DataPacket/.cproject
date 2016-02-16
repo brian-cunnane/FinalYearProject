@@ -70,6 +70,7 @@
 									<listOptionValue builtIn="false" value="&quot;${PROJECT_KSDK_PATH}/platform/system/src/clock&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${PROJECT_KSDK_PATH}/platform/system/src/clock/MKL26Z4&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/Board&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/DataPacket/FRDM_KL26Z}&quot;"/>
 								</option>
 								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.defs.1892153178" name="Defined symbols (-D)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.defs" useByScannerDiscovery="false" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="&quot;CPU_MKL26Z128VLH4&quot;"/>

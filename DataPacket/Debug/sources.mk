@@ -27,5 +27,6 @@ SUBDIRS := \
 Utilities \
 Sources \
 Project_Settings/Startup_Code \
+FRDM_KL26Z \
 Board \
 
