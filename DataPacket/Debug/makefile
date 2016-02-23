@@ -54,7 +54,7 @@ all: Lab_template.elf secondary-outputs
 Lab_template.elf: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: Cross ARM C++ Linker'
-	arm-none-eabi-g++ -mcpu=cortex-m0plus -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "MKL26Z128xxx4_flash.ld" -Xlinker --gc-sections -L"C:/kds_workspace/DataPacket/Project_Settings/Linker_Files" -Wl,-Map,"Lab_template.map" -specs=nosys.specs -specs=nano.specs -o "Lab_template.elf" $(OBJS) $(USER_OBJS) $(LIBS)
+	arm-none-eabi-g++ -mcpu=cortex-m0plus -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "MKL26Z128xxx4_flash.ld" -Xlinker --gc-sections -L"U:/year5/project/DataPacket/Project_Settings/Linker_Files" -Wl,-Map,"Lab_template.map" -specs=nosys.specs -specs=nano.specs -o "Lab_template.elf" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 

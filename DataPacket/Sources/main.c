@@ -3,7 +3,7 @@
  * Date: 16/Feb/2016
  * Description: Combining the ADC read and Uart Tx programs previously
  * written and adding data packet encapsulation
- */
+ *******************************************/
 #include "fsl_device_registers.h"
 #include "board.h"
 #include "fsl_debug_console.h"
@@ -18,8 +18,19 @@
 void UART1_config();
 void put_char(char c);
 void enable_UART1_receive_interrupt();
+char** createPacket();
 
 char channel = 15;
+char dataPacket[7];
+/*****************************
+ * [0]Header
+ * [1]Identifier
+ * [2]Length
+ * [3]Sensor1
+ * [4]Sensor2
+ * [5]Sensor3
+ * [6]Checksum
+ ****************************/
 
 int main(void)
 {
