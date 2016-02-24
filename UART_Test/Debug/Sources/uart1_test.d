@@ -9,9 +9,9 @@ Sources/uart1_test.o: ../Sources/uart1_test.c \
  ../SDK/platform/devices/MKL26Z4/include/MKL26Z4.h \
  ../SDK/platform/devices/MKL26Z4/include/fsl_bitaccess.h \
  ../SDK/platform/devices/MKL26Z4/include/MKL26Z4_features.h \
- C:/Users/brian/Kinetisworkspace.kds/Lab_template_v01/Board/board.h \
- C:/Users/brian/Kinetisworkspace.kds/Lab_template_v01/Board/pin_mux.h \
- C:/Users/brian/Kinetisworkspace.kds/Lab_template_v01/Board/gpio_pins.h \
+ U:/year5/project/UART_Test/Board/board.h \
+ U:/year5/project/UART_Test/Board/pin_mux.h \
+ U:/year5/project/UART_Test/Board/gpio_pins.h \
  C:\Freescale\KSDK_1.2.0\platform\drivers\inc/fsl_gpio_driver.h \
  C:\Freescale\KSDK_1.2.0\platform\hal\inc/fsl_port_hal.h \
  C:\Freescale\KSDK_1.2.0\platform\hal\inc/fsl_gpio_hal.h \
@@ -39,11 +39,11 @@ Sources/uart1_test.o: ../Sources/uart1_test.c \
 
 ../SDK/platform/devices/MKL26Z4/include/MKL26Z4_features.h:
 
-C:/Users/brian/Kinetisworkspace.kds/Lab_template_v01/Board/board.h:
+U:/year5/project/UART_Test/Board/board.h:
 
-C:/Users/brian/Kinetisworkspace.kds/Lab_template_v01/Board/pin_mux.h:
+U:/year5/project/UART_Test/Board/pin_mux.h:
 
-C:/Users/brian/Kinetisworkspace.kds/Lab_template_v01/Board/gpio_pins.h:
+U:/year5/project/UART_Test/Board/gpio_pins.h:
 
 C:\Freescale\KSDK_1.2.0\platform\drivers\inc/fsl_gpio_driver.h:
 

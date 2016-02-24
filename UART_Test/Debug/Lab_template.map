@@ -281,7 +281,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x22 ./Utilities/print_scan.o
  .debug_macro   0x00000000       0x94 ./Utilities/print_scan.o
  .debug_line    0x00000000      0x64a ./Utilities/print_scan.o
- .debug_str     0x00000000     0x67a6 ./Utilities/print_scan.o
+ .debug_str     0x00000000     0x678c ./Utilities/print_scan.o
  .comment       0x00000000       0x71 ./Utilities/print_scan.o
  .ARM.attributes
                 0x00000000       0x32 ./Utilities/print_scan.o
@@ -609,7 +609,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x10 ./Board/gpio_pins.o
  .debug_macro   0x00000000       0x22 ./Board/gpio_pins.o
  .debug_line    0x00000000      0x3cb ./Board/gpio_pins.o
- .debug_str     0x00000000    0xa9ef2 ./Board/gpio_pins.o
+ .debug_str     0x00000000    0xa9ed8 ./Board/gpio_pins.o
  .comment       0x00000000       0x71 ./Board/gpio_pins.o
  .ARM.attributes
                 0x00000000       0x32 ./Board/gpio_pins.o
@@ -2517,60 +2517,60 @@ OUTPUT(Lab_template.elf elf32-littlearm)
  .debug_macro   0x00014c48      0x256 ./Board/hardware_init.o
  .debug_macro   0x00014e9e      0x183 ./Board/pin_mux.o
 
-.debug_line     0x00000000     0x4b47
+.debug_line     0x00000000     0x4b2e
  .debug_line    0x00000000      0x7aa ./Utilities/fsl_debug_console.o
- .debug_line    0x000007aa      0x556 ./Sources/uart1_test.o
- .debug_line    0x00000d00      0x357 ./Project_Settings/Startup_Code/startup.o
- .debug_line    0x00001057       0x6c ./Project_Settings/Startup_Code/startup_MKL26Z4.o
- .debug_line    0x000010c3      0x37a ./Project_Settings/Startup_Code/system_MKL26Z4.o
- .debug_line    0x0000143d      0x675 ./Board/board.o
- .debug_line    0x00001ab2      0x5c9 ./Board/hardware_init.o
- .debug_line    0x0000207b      0x522 ./Board/pin_mux.o
- .debug_line    0x0000259d      0x38a C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_uart_hal.o)
- .debug_line    0x00002927      0x3d7 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_lpsci_hal.o)
- .debug_line    0x00002cfe      0x96c C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_clock_MKL26Z4.o)
- .debug_line    0x0000366a      0x614 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_clock_manager.o)
- .debug_line    0x00003c7e      0x14e C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_clock_manager_common.o)
- .debug_line    0x00003dcc      0x343 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_sim_hal_MKL26Z4.o)
- .debug_line    0x0000410f       0xf4 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_rtc_common.o)
- .debug_line    0x00004203       0xfe C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_osc_hal.o)
- .debug_line    0x00004301      0x3e7 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_mcg_hal.o)
- .debug_line    0x000046e8      0x45f C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_mcg_hal_modes.o)
+ .debug_line    0x000007aa      0x53d ./Sources/uart1_test.o
+ .debug_line    0x00000ce7      0x357 ./Project_Settings/Startup_Code/startup.o
+ .debug_line    0x0000103e       0x6c ./Project_Settings/Startup_Code/startup_MKL26Z4.o
+ .debug_line    0x000010aa      0x37a ./Project_Settings/Startup_Code/system_MKL26Z4.o
+ .debug_line    0x00001424      0x675 ./Board/board.o
+ .debug_line    0x00001a99      0x5c9 ./Board/hardware_init.o
+ .debug_line    0x00002062      0x522 ./Board/pin_mux.o
+ .debug_line    0x00002584      0x38a C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_uart_hal.o)
+ .debug_line    0x0000290e      0x3d7 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_lpsci_hal.o)
+ .debug_line    0x00002ce5      0x96c C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_clock_MKL26Z4.o)
+ .debug_line    0x00003651      0x614 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_clock_manager.o)
+ .debug_line    0x00003c65      0x14e C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_clock_manager_common.o)
+ .debug_line    0x00003db3      0x343 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_sim_hal_MKL26Z4.o)
+ .debug_line    0x000040f6       0xf4 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_rtc_common.o)
+ .debug_line    0x000041ea       0xfe C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_osc_hal.o)
+ .debug_line    0x000042e8      0x3e7 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_mcg_hal.o)
+ .debug_line    0x000046cf      0x45f C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_mcg_hal_modes.o)
 
-.debug_str      0x00000000    0xb08aa
- .debug_str     0x00000000    0xabd7d ./Utilities/fsl_debug_console.o
-                              0xac317 (size before relaxing)
- .debug_str     0x000abd7d      0xf0d ./Sources/uart1_test.o
-                              0xaad18 (size before relaxing)
- .debug_str     0x000acc8a      0x12f ./Project_Settings/Startup_Code/startup.o
-                              0xa9b42 (size before relaxing)
- .debug_str     0x000acdb9       0xb4 ./Project_Settings/Startup_Code/system_MKL26Z4.o
-                              0xa9ba6 (size before relaxing)
- .debug_str     0x000ace6d      0x723 ./Board/board.o
-                              0xab406 (size before relaxing)
- .debug_str     0x000ad590       0x27 ./Board/hardware_init.o
-                              0xaaaec (size before relaxing)
- .debug_str     0x000ad5b7      0x1a7 ./Board/pin_mux.o
-                              0xa9d86 (size before relaxing)
- .debug_str     0x000ad75e      0x61d C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_uart_hal.o)
+.debug_str      0x00000000    0xb0890
+ .debug_str     0x00000000    0xabd63 ./Utilities/fsl_debug_console.o
+                              0xac2fd (size before relaxing)
+ .debug_str     0x000abd63      0xf0d ./Sources/uart1_test.o
+                              0xaacfe (size before relaxing)
+ .debug_str     0x000acc70      0x12f ./Project_Settings/Startup_Code/startup.o
+                              0xa9b28 (size before relaxing)
+ .debug_str     0x000acd9f       0xb4 ./Project_Settings/Startup_Code/system_MKL26Z4.o
+                              0xa9b8c (size before relaxing)
+ .debug_str     0x000ace53      0x723 ./Board/board.o
+                              0xab3ec (size before relaxing)
+ .debug_str     0x000ad576       0x27 ./Board/hardware_init.o
+                              0xaaad2 (size before relaxing)
+ .debug_str     0x000ad59d      0x1a7 ./Board/pin_mux.o
+                              0xa9d6c (size before relaxing)
+ .debug_str     0x000ad744      0x61d C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_uart_hal.o)
                                 0x919 (size before relaxing)
- .debug_str     0x000add7b      0x534 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_lpsci_hal.o)
+ .debug_str     0x000add61      0x534 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_lpsci_hal.o)
                                 0xa1f (size before relaxing)
- .debug_str     0x000ae2af     0x10c6 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_clock_MKL26Z4.o)
+ .debug_str     0x000ae295     0x10c6 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_clock_MKL26Z4.o)
                                0x1833 (size before relaxing)
- .debug_str     0x000af375      0x9f7 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_clock_manager.o)
+ .debug_str     0x000af35b      0x9f7 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_clock_manager.o)
                                0x17aa (size before relaxing)
- .debug_str     0x000afd6c       0x61 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_clock_manager_common.o)
+ .debug_str     0x000afd52       0x61 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_clock_manager_common.o)
                                 0x34e (size before relaxing)
- .debug_str     0x000afdcd      0x417 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_sim_hal_MKL26Z4.o)
+ .debug_str     0x000afdb3      0x417 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_sim_hal_MKL26Z4.o)
                                 0x786 (size before relaxing)
- .debug_str     0x000b01e4       0x5f C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_rtc_common.o)
+ .debug_str     0x000b01ca       0x5f C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_rtc_common.o)
                                 0x3fc (size before relaxing)
- .debug_str     0x000b0243       0x43 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_osc_hal.o)
+ .debug_str     0x000b0229       0x43 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_osc_hal.o)
                                 0x233 (size before relaxing)
- .debug_str     0x000b0286      0x4eb C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_mcg_hal.o)
+ .debug_str     0x000b026c      0x4eb C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_mcg_hal.o)
                                 0xb0e (size before relaxing)
- .debug_str     0x000b0771      0x139 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_mcg_hal_modes.o)
+ .debug_str     0x000b0757      0x139 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_mcg_hal_modes.o)
                                 0xa9b (size before relaxing)
 
 .comment        0x00000000       0x70
