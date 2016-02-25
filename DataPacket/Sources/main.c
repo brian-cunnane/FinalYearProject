@@ -11,17 +11,21 @@
 #include "pit_kl26z.h"
 #include "gpio.h"
 
-#define RDRF_MASK 0x20 // UART received data register flag mask
-#define RIE_MASK 0x20 // UART receive interrupt enable mask
-//#define UART_S1_TDRE_MASK 0x80
+#define RDRF_MASK 0x20	//Receive Data Register Full Flag Mask
+#define RIE_MASK 0x20	//Receive Interrupt Enable Mask
+#define UART_S1_TRDE_MASK 0X80
 
 void UART1_config();
 void put_char(char c);
 void enable_UART1_receive_interrupt();
-char** createPacket();
+char* createPacket(char * element0);
+char char_received();
 
 char channel = 15;
-char dataPacket[7];
+char dataPacket[7] = {0};
+char* masterPointer;
+char* element0;
+
 /*****************************
  * [0]Header
  * [1]Identifier
@@ -40,8 +44,11 @@ int main(void)
 	enable_UART1_receive_interrupt();
 	adc0_config(SW_TRIGGER,BIT16,ADC_INTERRUPT_DISABLED);
 	PIT_Configure_interrupt_mode(2); // 2 second interrupt
+	masterPointer = dataPacket;
+	element0 = masterPointer;
+	while(1){
 
-	while(1){}
+	}
 
     return 0;
 }
@@ -62,36 +69,34 @@ void PIT_IRQHandler()
 	ADC0_SC1A = 0x04Fu;
 	ADC0_SC1A &= 0xFFFFFFE0;
 	ADC0_SC1A |= channel;
-	//PIT_TFLG0 = 0x01ul;
-	//ADC0_SC1A = 0x4Fu;
-	//ADC0_SC1A &= 0xFFFFFFE0;
-	//ADC0_SC1A |= channel;//15
 
-	int sample = read_adc0(channel);
-	float vtemp = (float)sample/65536 * 3.3;
-	float temp = vtemp * 100;
-	char info  = (char)temp;
-	put_char(info);
+	createPacket(element0);
+
+
+	int i;
+	for(i = 0; i < 7; i ++)
+	{
+		put_char(dataPacket[i]);
+	}
 }
 
 void UART1_config()
 {
 	int SBR; //serial Baud Rate
-	//enable port 2 & uart 1 clocks
-	//SIM_SCGC5 |= SIM_SCGC5_PORTE_MASK;
-	SIM_SCGC4 |= 0x01u<<11; // enable clock
-	SIM_SOPT2 |= 0x01u <<26;
-
 	//config uart1 pins
 	PORTE_PCR0 |= 0x03u << 8; // mux ALT2 UART1_RX
 	PORTE_PCR1 |= 0x03u << 8; // mux ALT2 UART1_TX
-
 	//config baudrate
+	SIM_SCGC4 |= 0x01u<<11; // enable clock
+	UART1_C2&=0XF3;//disabling transmission and receiving until config complete
+	SIM_SOPT2 |= 0x01u <<26;
+
+
 
 	//osr is fixed @ 16 for uart2
 	SBR = 78;//uart_clock/(16*9600);
 
-	UART1_BDL = SBR && 0xff; //baudrate register low
+	UART1_BDL = SBR & 0xff; //baudrate register low
 	UART1_BDH |=((SBR & 0xff00)>>8);
 
 	UART1_C1 = 0; //8 bit no parity
@@ -99,12 +104,13 @@ void UART1_config()
 	UART1_C3 = 0; // no special interrupts
 }
 
-void UART1_IRQHandler()
+void UART1_IRQHandler() // for chars received
 {
-	if (UART1_S1 & RDRF_MASK)
-	{
-		put_char(UART1_D); // echo character
-	}
+	//if (UART1_S1 & RDRF_MASK)
+	//{
+		//put_char(UART1_D); // echo character
+
+	//}
 }
 
 void put_char(char c)
@@ -119,4 +125,42 @@ void enable_UART1_receive_interrupt()
 	NVIC_ClearPendingIRQ(13);
 	NVIC_EnableIRQ(13);
 	UART1_C2 |= RIE_MASK;
+}
+
+char* createPacket(char* element0)
+{
+	int i;
+	char checksum = 0x00;
+	*element0 = 0x55; //assign header value
+	element0 ++;
+	//assign identifier
+	*element0 = 0x01;
+	element0 ++;
+	//assign length
+	*element0 = 0x04;
+	element0 ++;
+	//assign readings
+	*element0 = 0x06; //s1
+	element0++;
+	*element0 = 0x07;//s2
+	element0++;
+	*element0 = 0x08;//s3
+	element0++;
+	for(i = 2; i < 6; i ++)
+	{
+		checksum = checksum ^ dataPacket[i];
+	}
+	*element0 = checksum;
+	element0 = masterPointer;
+	for (i = 0; i < 7; i ++)
+	{
+		put_char(*element0);
+		element0++;
+	}
+	/*
+	int sample = read_adc0(channel);
+	float vtemp = (float)sample/65536 * 3.3;
+	float temp = vtemp * 100;
+	char info  = (char)temp;
+	*/
 }
