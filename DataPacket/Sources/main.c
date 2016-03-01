@@ -43,7 +43,7 @@ int main(void)
 	UART1_config();
 	enable_UART1_receive_interrupt();
 	adc0_config(SW_TRIGGER,BIT16,ADC_INTERRUPT_DISABLED);
-	PIT_Configure_interrupt_mode(5); // 2 second interrupt
+	PIT_Configure_interrupt_mode(1); // 2 second interrupt
 	masterPointer = dataPacket;
 	element0 = masterPointer;
 	while(1){
@@ -115,9 +115,12 @@ void UART1_IRQHandler() // for chars received
 
 void put_char(char c)
 {
-	if(UART1_S1 & UART_S1_TDRE_MASK ==0)
+	while((UART1_S1 & UART_S1_TDRE_MASK) ==0)
 	{}
 	UART1_D = c;
+	/*while(UART1_S1 & UART_S1_TC_MASK ==0)
+		{}
+	for(int x=0;x<100000;x++);*/
 }
 
 void enable_UART1_receive_interrupt()
@@ -135,31 +138,31 @@ char* createPacket(char* element0)
 	*element0 = 0x55; //assign header value
 	element0 ++;
 	//assign identifier
-	*element0 = 0x56;
+	*element0 = 0x01;
 	element0 ++;
 	//assign length
-	*element0 = 0x57;
+	*element0 = 0x04;
 	element0 ++;
 	//assign readings
-	*element0 = 0x58; //s1
+	*element0 = 0x06; //s1
 	element0++;
-	*element0 = 0x59;//s2
+	*element0 = 0x07;//s2
 	element0++;
-	*element0 = 0x60;//s3
+	*element0 = 0x08;//s3
 	element0++;
-	for(i = 2; i < 6; i ++)
+	for(i = 0; i < 4; i ++)
 	{
-		checksum = checksum ^ dataPacket[i];
+		checksum = checksum ^ (*(dataPacket + i + 2));//should be 0x0d
 	}
 	*element0 = checksum;
-	element0 = masterPointer;
-	for (i = 0; i < 7; i ++)
+	element0 = masterPointer; //return to start of array
+	/*for (i = 0; i < 7; i ++)
 	{
 		put_char(*element0);
 		element0++;
-		//for(x = 0; x < 10000; x++);
+//		for(x = 0; x < 50000; x++);
 		//delay causes last char to send twice...
-	}
+	}*/
 	/*
 	int sample = read_adc0(channel);
 	float vtemp = (float)sample/65536 * 3.3;
