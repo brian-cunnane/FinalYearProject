@@ -115,7 +115,7 @@ void UART1_IRQHandler() // for chars received
 
 void put_char(char c)
 {
-	while((UART1_S1 & UART_S1_TDRE_MASK) ==0)
+	while((UART1_S1 & UART_S1_TDRE_MASK) == 0)//brackets to enforce order of presidence
 	{}
 	UART1_D = c;
 	/*while(UART1_S1 & UART_S1_TC_MASK ==0)
@@ -144,6 +144,12 @@ char* createPacket(char* element0)
 	*element0 = 0x04;
 	element0 ++;
 	//assign readings
+	/*
+	int sample = read_adc0(channel);
+	float vtemp = (float)sample/65536 * 3.3;
+	float temp = vtemp * 100;
+	*element0  = (char)temp;
+	*/
 	*element0 = 0x06; //s1
 	element0++;
 	*element0 = 0x07;//s2
@@ -152,21 +158,10 @@ char* createPacket(char* element0)
 	element0++;
 	for(i = 0; i < 4; i ++)
 	{
-		checksum = checksum ^ (*(dataPacket + i + 2));//should be 0x0d
+		checksum = checksum ^ (*(dataPacket + i + 2));//should be 0x0d for this test
 	}
 	*element0 = checksum;
 	element0 = masterPointer; //return to start of array
-	/*for (i = 0; i < 7; i ++)
-	{
-		put_char(*element0);
-		element0++;
-//		for(x = 0; x < 50000; x++);
-		//delay causes last char to send twice...
-	}*/
-	/*
-	int sample = read_adc0(channel);
-	float vtemp = (float)sample/65536 * 3.3;
-	float temp = vtemp * 100;
-	char info  = (char)temp;
-	*/
+
+
 }
