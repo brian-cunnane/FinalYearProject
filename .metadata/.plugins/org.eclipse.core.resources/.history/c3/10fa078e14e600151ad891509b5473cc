@@ -144,13 +144,13 @@ char* createPacket(char* element0)
 	*element0 = 0x04;
 	element0 ++;
 	//assign readings
-
+	/*
 	int sample = read_adc0(channel);
 	float vtemp = (float)sample/65536 * 3.3;
 	float temp = vtemp * 100;
 	*element0  = (char)temp;
-
-	//*element0 = 0x06; //s1
+	*/
+	*element0 = 0x06; //s1
 	element0++;
 	*element0 = 0x07;//s2
 	element0++;
