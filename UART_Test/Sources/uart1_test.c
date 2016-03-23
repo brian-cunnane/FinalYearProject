@@ -1,75 +1,97 @@
-/*
- * main.c
- *
- *  Created on: 18 Jan 2016
- *      Author: brian
- *      description: Program to output 0x55 on UART1 of KL26Z board for uart testing.
- */
-#include "fsl_device_registers.h"
 #include "board.h"
+#include "fsl_clock_manager.h"
 #include "fsl_debug_console.h"
+#include <stdlib.h>
+#include <string.h>
 
-void UART1_config();
+
+#define RDRF_MASK 0x20	//Receive Data Register Full Flag Mask
+#define RIE_MASK 0x20	//Receive Interrupt Enable Mask
+#define UART_S1_TRDE_MASK 0X80
+
+/*******************************************************************************
+ * Prototypes
+ ******************************************************************************/
+char char_received();
+void enable_UART1_receive_interrupt();
 void put_char(char c);
-void tx_string(char *ptr);
+/*******************************************************************************
+ * Code
+ ******************************************************************************/
+
+/*
+ * UART0 Interrupt Handler
+ * Echos received character
+ */
+void UART1_IRQHandler(void)
+{
+    if(UART1_S1 & RDRF_MASK)
+    {
+    	PUTCHAR(UART1_D);
+    	//PUTCHAR('A');
+    }
+}
+
+//this is not needed as hardware init executes this for UART
+void uart_config()
+{
+		int SBR;
+		PORTE_PCR0|=0x3u<<8;//mux - ALT2 UART0_RX
+		PORTE_PCR1|=0x3u<<8;//mux - ALT2 UART0_TX
+
+		SIM_SCGC4|=0x1u<<11;//enabling clock
+		UART1_C2&=0XF3;//disabling transmission and receiving until config complete
+		SIM_SOPT2|=0x1u<<26;
+		//uart_clock=CLOCK_SYS_GetPllFllClockFreq();
+		//OSR=15;
+		SBR=78;
+		//UART1_C4=OSR;
+		UART1_BDL=SBR&0XFF;
+		UART1_BDH|=((SBR&0XFF00)>>8);
+
+		UART1_C1=0;
+		UART1_C2|=0X0C;
+		UART1_C3=0;
+}
 
 
-int main(){
-	int x;
+int main()
+{
+
 	hardware_init();
-	//tx_string("Serial example\r\n");
-	UART1_config();
-	//enable_UART2_receive_interrupt();
-	NVIC_EnableIRQ(13);
+	uart_config();
+	enable_UART1_receive_interrupt();
+
+	PRINTF("UART0 Test Code\n\r");
+	PRINTF("Any entered character will be echoed\r\n\n");
+
 	while(1)
 	{
 		put_char(0x55);
-		for(x=0;x<10000;x++);
-	}
-}
-void UART1_config(){
-	long int uart_clock, br;
-	unsigned int sbr, osr;
-	unsigned char ch;
-
-	//hardware_init();
-	//enable port d & uart 2 clocks
-	SIM_SCGC5 |= SIM_SCGC5_PORTE_MASK;
-	SIM_SCGC4 |= SIM_SCGC4_UART1_MASK;
-
-	//config clocks
-	//BOARD_ClockInit();
-	//config uart1 pins
-	PORTE_PCR0 |= 0x03u << 8;//uart2tx/rx=1, tmp0_ch2/3=0,spio_miso/mosi = 0
-	PORTE_PCR1 |= 0x03u << 8;
-
-//config baudrate
-	//uart_clock = CLOCK_SYS_GetPllFllClockFreq();
-	//osr is fixed @ 16 for uart2
-	sbr = 78;//uart_clock/(16*9600);
-	//UART2_C4 = osr;
-	UART1_BDL = sbr && 0xff; //baudrate register low
-	UART1_BDH |=((sbr & 0xff00)>>8);
-
-	UART1_C1 = 0; //8 bit no parity
-	UART1_C2 |= 0x0c; // enable tx & rx
-	UART1_C3 = 0; // no special interrupts
-}
-
-void UART1_IRQHandler(){
-	if(UART1_S1 & UART_S1_RDRF_MASK){
-		put_char(UART1_D); //echo received character
+		for(int x=0;x<10000;x++);
 	}
 }
 
-void put_char(char c){
-	while(UART1_S1 & UART_S1_TDRE_MASK == 0) //wait for empty tx buffer
+
+char char_received()
+{
+	if(UART1_S1 & RDRF_MASK)
+		return 1;
+	else
+		return 0;
+}
+
+
+void enable_UART1_receive_interrupt()
+{
+	//Configure NVIC
+	NVIC_ClearPendingIRQ(13);
+	NVIC_EnableIRQ(13);
+	UART1_C2 |= RIE_MASK;	//set RIE to enable receive interrupt
+}
+void put_char(char c)
+{
+	while((UART1_S1 & UART_S1_TRDE_MASK)==0)
 	{}
-	UART1_D = c;
+	UART1_D=c;
 }
-
-void tx_string(char *ptr){
-	while(*ptr != '\0')
-		put_char(*ptr++);
-}
-
