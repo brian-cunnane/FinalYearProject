@@ -40,6 +40,7 @@ int main(void)
     			sample |= 0x01u;
     		sample <<= 1;
     	}
+    	//sample ^= 0x800000; convert from 2s compliment
     	PRINTF("SAMPLE is %ld\r\n",sample);
     }
 
