@@ -11,6 +11,7 @@ RM := rm -rf
 -include Utilities/subdir.mk
 -include Sources/subdir.mk
 -include Project_Settings/Startup_Code/subdir.mk
+-include FRDM_KL26Z/subdir.mk
 -include Board/subdir.mk
 -include subdir.mk
 -include objects.mk
@@ -53,7 +54,7 @@ all: Lab_template.elf secondary-outputs
 Lab_template.elf: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: Cross ARM C++ Linker'
-	arm-none-eabi-g++ -mcpu=cortex-m0plus -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "MKL26Z128xxx4_flash.ld" -Xlinker --gc-sections -L"C:/Niall/Test_Workspace/Lab_template_v01/Project_Settings/Linker_Files" -Wl,-Map,"Lab_template.map" -specs=nosys.specs -specs=nano.specs -o "Lab_template.elf" $(OBJS) $(USER_OBJS) $(LIBS)
+	arm-none-eabi-g++ -mcpu=cortex-m0plus -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "MKL26Z128xxx4_flash.ld" -Xlinker --gc-sections -L"U:/year5/project/Weight/Project_Settings/Linker_Files" -Wl,-Map,"Lab_template.map" -specs=nosys.specs -specs=nano.specs -o "Lab_template.elf" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 

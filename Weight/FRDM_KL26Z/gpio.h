@@ -40,6 +40,9 @@
 #define RED_LED_MASK 0x20000000		//pin 29
 #define GREEN_LED_MASK 0x80000000	//pin 31
 #define SW1_MASK 0x8				//pin 3
+#define CLK_MASK 0x100				//ptc8
+#define DATA_MASK 0x200				//ptc9
+
 
 //LED macros
 #define BLUE_LED_ON() GPIOD_PCOR |= BLUE_LED_MASK
@@ -74,6 +77,9 @@ void FRDM_KL26Z_LEDs_Configure();
 void LED_set(int LED_code, int setting);
 void FRDM_KL26Z_SW1_Configure(int pull_resistor, int interrupt_option);
 char SW1_read();
+void FRDM_KL26Z_CLK_Configure();
+void FRDM_KL26Z_DATA_Configure(int pull_resistor, int interrupt_option);
+char DATA_read();
 
 
 #endif /* FRDM_KL26Z_GPIO_H_ */

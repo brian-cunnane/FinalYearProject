@@ -19,12 +19,29 @@
 
 int main(void)
 {
-
+	long int sample = 0;
 	hardware_init();
+	FRDM_KL26Z_CLK_Configure();//configure PTC8 as output for clocking hx711
+	FRDM_KL26Z_DATA_Configure(0,0);//configure PTC9 as input for HX711
 	PRINTF("Weighing scales test code\r\n");
 
     while(1)
-    {}
+    {
+    	int x;
+    	int i;
+    	for(x = 0; x < 25; x++)
+    	{
+    		GPIOC_PCOR |= CLK_MASK; //PTC8 = 0
+    		GPIOC_PSOR |= CLK_MASK; //PTC8 = 1
+    		for(i = 0; i < 200; i ++); //delay
+    		GPIOC_PCOR |= CLK_MASK;
+    		for(i = 0; i < 200; i ++);
+    		if(DATA_read())
+    			sample |= 0x01u;
+    		sample <<= 1;
+    	}
+    	PRINTF("SAMPLE is %ld\r\n",sample);
+    }
 
     return 0;
 }
