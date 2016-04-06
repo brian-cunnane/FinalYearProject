@@ -29,7 +29,7 @@ int main(void)
     {
     	int x;
     	int i;
-    	for(x = 0; x < 25; x++)
+    	for(x = 0; x < 24; x++)
     	{
     		GPIOC_PCOR |= CLK_MASK; //PTC8 = 0
     		GPIOC_PSOR |= CLK_MASK; //PTC8 = 1
@@ -40,8 +40,16 @@ int main(void)
     			sample |= 0x01u;
     		sample <<= 1;
     	}
+    	GPIOC_PSOR |= CLK_MASK;
+    	GPIOC_PCOR |= CLK_MASK;
     	//sample ^= 0x800000; convert from 2s compliment
     	PRINTF("SAMPLE is %ld\r\n",sample);
+    	int sign = sample >> 24;
+    	if(sign == 1){
+    		PRINTF("IT'S TWO'S COMPLIMENT\r\n");
+    		unsigned long int value = (sample + sign) ^ sign;
+    		PRINTF("Value is %llu\r\n",value);
+    	}
     }
 
     return 0;
