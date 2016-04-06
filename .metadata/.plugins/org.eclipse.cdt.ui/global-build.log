@@ -1,4 +1,4 @@
-05:38:26 **** Incremental Build of configuration Debug for project Weight ****
+09:22:56 **** Incremental Build of configuration Debug for project Weight ****
 make all 
 'Building file: ../Sources/main.c'
 'Invoking: Cross ARM C Compiler'
@@ -10,3 +10,6 @@ arm-none-eabi-gcc -mcpu=cortex-m0plus -mthumb -O0 -fmessage-length=0 -fsigned-ch
 arm-none-eabi-g++ -mcpu=cortex-m0plus -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "MKL26Z128xxx4_flash.ld" -Xlinker --gc-sections -L"U:/year5/project/Weight/Project_Settings/Linker_Files" -Wl,-Map,"Lab_template.map" -specs=nosys.specs -specs=nano.specs -o "Lab_template.elf"  ./Utilities/fsl_debug_console.o ./Utilities/print_scan.o  ./Sources/main.o  ./Project_Settings/Startup_Code/startup.o ./Project_Settings/Startup_Code/startup_MKL26Z4.o ./Project_Settings/Startup_Code/system_MKL26Z4.o  ./FRDM_KL26Z/adc.o ./FRDM_KL26Z/gpio.o ./FRDM_KL26Z/pit_kl26z.o  ./Board/board.o ./Board/gpio_pins.o ./Board/hardware_init.o ./Board/pin_mux.o  C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a 
 'Finished building target: Lab_template.elf'
 ' '
+09:23:13 **** Incremental Build of configuration Debug for project Weight ****
+make all 
+make: Nothing to be done for `all'.
