@@ -1,9 +1,9 @@
 Sources/main.o: ../Sources/main.c \
- U:\year5\project\HumiditySensor\FRDM_KL26Z/adc.h \
- U:\year5\project\HumiditySensor\FRDM_KL26Z/pit_kl26z.h \
- U:/year5/project/HumiditySensor/Board/board.h \
- U:/year5/project/HumiditySensor/Board/pin_mux.h \
- U:/year5/project/HumiditySensor/Board/gpio_pins.h \
+ C:\Users\brian\Documents\year5\project\code\HumiditySensor\FRDM_KL26Z/adc.h \
+ C:\Users\brian\Documents\year5\project\code\HumiditySensor\FRDM_KL26Z/pit_kl26z.h \
+ C:/Users/brian/Documents/year5/project/code/HumiditySensor/Board/board.h \
+ C:/Users/brian/Documents/year5/project/code/HumiditySensor/Board/pin_mux.h \
+ C:/Users/brian/Documents/year5/project/code/HumiditySensor/Board/gpio_pins.h \
  C:\Freescale\KSDK_1.2.0\platform\drivers\inc/fsl_gpio_driver.h \
  C:\Freescale\KSDK_1.2.0\platform\hal\inc/fsl_port_hal.h \
  ../SDK/platform/devices/fsl_device_registers.h \
@@ -29,15 +29,15 @@ Sources/main.o: ../Sources/main.c \
  C:\Freescale\KSDK_1.2.0\platform\osa\inc/fsl_os_abstraction.h \
  C:\Freescale\KSDK_1.2.0\platform\osa\inc/fsl_os_abstraction_bm.h
 
-U:\year5\project\HumiditySensor\FRDM_KL26Z/adc.h:
+C:\Users\brian\Documents\year5\project\code\HumiditySensor\FRDM_KL26Z/adc.h:
 
-U:\year5\project\HumiditySensor\FRDM_KL26Z/pit_kl26z.h:
+C:\Users\brian\Documents\year5\project\code\HumiditySensor\FRDM_KL26Z/pit_kl26z.h:
 
-U:/year5/project/HumiditySensor/Board/board.h:
+C:/Users/brian/Documents/year5/project/code/HumiditySensor/Board/board.h:
 
-U:/year5/project/HumiditySensor/Board/pin_mux.h:
+C:/Users/brian/Documents/year5/project/code/HumiditySensor/Board/pin_mux.h:
 
-U:/year5/project/HumiditySensor/Board/gpio_pins.h:
+C:/Users/brian/Documents/year5/project/code/HumiditySensor/Board/gpio_pins.h:
 
 C:\Freescale\KSDK_1.2.0\platform\drivers\inc/fsl_gpio_driver.h:
 

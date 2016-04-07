@@ -31,15 +31,16 @@ void PIT_IRQHandler() {
 	ADC0_SC1A = 0x04Fu;
 	ADC0_SC1A &= 0xFFFFFFE0;
 	ADC0_SC1A |= HUMIDITYCHANNEL;
-	float average;
+	float average = 0;
 	unsigned int sample = read_adc0(HUMIDITYCHANNEL);
-	float relativeHumidity = (float) sample - 32981.97818;
+	float relativeHumidity = (float) sample - 15887.27273;//32981.97818;
 	relativeHumidity = relativeHumidity * 0.00162;
 	average += relativeHumidity;
 	count ++;
 	if (count == 10)//take 10 readings and find average to cut down noise.
 	{
-		PRINTF("Sample is %d. RH %d%% \r\n", sample, (unsigned int) average/10);
+		//average = average/10;
+		PRINTF("Sample is %d. RH %d%% \r\n", sample, (unsigned int) average);
 		average = 0;
 		count = 0;
 	}
