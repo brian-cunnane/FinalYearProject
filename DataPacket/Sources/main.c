@@ -43,7 +43,7 @@ int main(void)
 	UART1_config();
 	enable_UART1_receive_interrupt();
 	adc0_config(SW_TRIGGER,BIT16,ADC_INTERRUPT_DISABLED);
-	PIT_Configure_interrupt_mode(5); // 2 second interrupt
+	PIT_Configure_interrupt_mode(20); // 2 second interrupt
 	masterPointer = dataPacket;
 	element0 = masterPointer;
 	while(1){
