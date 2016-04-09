@@ -9,17 +9,17 @@ Sources/main.o: ../Sources/main.c \
  ../SDK/platform/devices/MKL26Z4/include/MKL26Z4.h \
  ../SDK/platform/devices/MKL26Z4/include/fsl_bitaccess.h \
  ../SDK/platform/devices/MKL26Z4/include/MKL26Z4_features.h \
- U:/year5/project/Weight/Board/board.h \
- U:/year5/project/Weight/Board/pin_mux.h \
- U:/year5/project/Weight/Board/gpio_pins.h \
+ C:/Users/brian/Documents/year5/project/code/Weight/Board/board.h \
+ C:/Users/brian/Documents/year5/project/code/Weight/Board/pin_mux.h \
+ C:/Users/brian/Documents/year5/project/code/Weight/Board/gpio_pins.h \
  C:\Freescale\KSDK_1.2.0\platform\drivers\inc/fsl_gpio_driver.h \
  C:\Freescale\KSDK_1.2.0\platform\hal\inc/fsl_port_hal.h \
  C:\Freescale\KSDK_1.2.0\platform\hal\inc/fsl_gpio_hal.h \
  C:\Freescale\KSDK_1.2.0/platform/utilities/inc/fsl_debug_console.h \
  C:\Freescale\KSDK_1.2.0\platform\osa\inc/fsl_os_abstraction.h \
  C:\Freescale\KSDK_1.2.0\platform\osa\inc/fsl_os_abstraction_bm.h \
- U:\year5\project\Weight\FRDM_KL26Z/gpio.h \
- U:\year5\project\Weight\FRDM_KL26Z/pit_kl26z.h
+ C:\Users\brian\Documents\year5\project\code\Weight\FRDM_KL26Z/gpio.h \
+ C:\Users\brian\Documents\year5\project\code\Weight\FRDM_KL26Z/pit_kl26z.h
 
 ../SDK/platform/devices/fsl_device_registers.h:
 
@@ -41,11 +41,11 @@ Sources/main.o: ../Sources/main.c \
 
 ../SDK/platform/devices/MKL26Z4/include/MKL26Z4_features.h:
 
-U:/year5/project/Weight/Board/board.h:
+C:/Users/brian/Documents/year5/project/code/Weight/Board/board.h:
 
-U:/year5/project/Weight/Board/pin_mux.h:
+C:/Users/brian/Documents/year5/project/code/Weight/Board/pin_mux.h:
 
-U:/year5/project/Weight/Board/gpio_pins.h:
+C:/Users/brian/Documents/year5/project/code/Weight/Board/gpio_pins.h:
 
 C:\Freescale\KSDK_1.2.0\platform\drivers\inc/fsl_gpio_driver.h:
 
@@ -59,6 +59,6 @@ C:\Freescale\KSDK_1.2.0\platform\osa\inc/fsl_os_abstraction.h:
 
 C:\Freescale\KSDK_1.2.0\platform\osa\inc/fsl_os_abstraction_bm.h:
 
-U:\year5\project\Weight\FRDM_KL26Z/gpio.h:
+C:\Users\brian\Documents\year5\project\code\Weight\FRDM_KL26Z/gpio.h:
 
-U:\year5\project\Weight\FRDM_KL26Z/pit_kl26z.h:
+C:\Users\brian\Documents\year5\project\code\Weight\FRDM_KL26Z/pit_kl26z.h:
