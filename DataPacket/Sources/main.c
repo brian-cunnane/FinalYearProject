@@ -10,10 +10,12 @@
 #include "adc.h"
 #include "pit_kl26z.h"
 #include "gpio.h"
+#include "WeightSensor.h"
 
 #define RDRF_MASK 0x20	//Receive Data Register Full Flag Mask
 #define RIE_MASK 0x20	//Receive Interrupt Enable Mask
 #define UART_S1_TRDE_MASK 0X80
+#define CONVERSIONFACTOR 20
 
 void UART1_config();
 void put_char(char c);
@@ -25,7 +27,7 @@ char channel = 15;
 char dataPacket[7] = {0};
 char* masterPointer;
 char* element0;
-
+unsigned long int zero_offset = 0;
 /*****************************
  * [0]Header
  * [1]Identifier
@@ -44,8 +46,12 @@ int main(void)
 	enable_UART1_receive_interrupt();
 	adc0_config(SW_TRIGGER,BIT16,ADC_INTERRUPT_DISABLED);
 	PIT_Configure_interrupt_mode(20); // 2 second interrupt
+	FRDM_KL26Z_CLK_Configure(); //configure PTC8 as output for clocking hx711
+	FRDM_KL26Z_DATA_Configure(0, 0); //configure PTC9 as input for HX711
+
 	masterPointer = dataPacket;
 	element0 = masterPointer;
+	zero_offset = calibrate(zero_offset);
 	while(1){
 
 	}
@@ -118,9 +124,7 @@ void put_char(char c)
 	while((UART1_S1 & UART_S1_TDRE_MASK) == 0)//brackets to enforce order of presidence
 	{}
 	UART1_D = c;
-	/*while(UART1_S1 & UART_S1_TC_MASK ==0)
-		{}
-	for(int x=0;x<100000;x++);*/
+
 }
 
 void enable_UART1_receive_interrupt()
@@ -134,6 +138,8 @@ char* createPacket(char* element0)
 {
 	int i;
 	int x;
+	unsigned long int averageValue = 0;
+	int grams = 0;
 	char checksum = 0x00;
 	*element0 = 0x55; //assign header value
 	element0 ++;
@@ -152,7 +158,9 @@ char* createPacket(char* element0)
 
 	//*element0 = 0x06; //s1
 	element0++;
-	*element0 = 0x07;//s2
+	averageValue = readAverageValue(averageValue, zero_offset);
+	grams = averageValue/CONVERSIONFACTOR;
+	*element0 = grams;//s2
 	element0++;
 	*element0 = 0x08;//s3
 	element0++;
