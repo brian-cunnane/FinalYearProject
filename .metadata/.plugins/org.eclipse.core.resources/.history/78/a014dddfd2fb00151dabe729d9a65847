@@ -1,0 +1,50 @@
+/***********************************************************************************************
+ *Author: Brian Cunnane
+ *Date: 04/Apr/2016
+ *Description: Weighing scales test code
+ **********************************************************************************************/
+#include "fsl_device_registers.h"
+#include "board.h"
+#include "fsl_debug_console.h"
+#include "gpio.h"
+#include "pit_kl26z.h"
+
+/*****************************************************
+ * Pseudocode description:
+ * toggle clock pin 25 times
+ * read data on datapin after each toggle
+ * toggle clock once to reset
+ * wait for data to go high before rereading
+ */
+
+int main(void)
+{
+	long int sample = 0;
+	hardware_init();
+	FRDM_KL26Z_CLK_Configure();//configure PTC8 as output for clocking hx711
+	FRDM_KL26Z_DATA_Configure(0,0);//configure PTC9 as input for HX711
+	PRINTF("Weighing scales test code\r\n");
+
+    while(1)
+    {
+    	int x;
+    	int i;
+    	for(x = 0; x < 24; x++)
+    	{
+    		GPIOC_PCOR |= CLK_MASK; //PTC8 = 0
+    		GPIOC_PSOR |= CLK_MASK; //PTC8 = 1
+    		for(i = 0; i < 200; i ++); //delay
+    		GPIOC_PCOR |= CLK_MASK;
+    		for(i = 0; i < 200; i ++);
+    		if(DATA_read())
+    			sample |= 0x01u;
+    		sample <<= 1;
+    	}
+    	GPIOC_PSOR |= CLK_MASK;
+
+    	//sample ^= 0x800000; convert from 2s compliment
+    	PRINTF("SAMPLE is %ld\r\n",sample);
+    }
+
+    return 0;
+}
