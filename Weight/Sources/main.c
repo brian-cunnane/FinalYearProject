@@ -8,6 +8,9 @@
 #include "fsl_debug_console.h"
 #include "gpio.h"
 #include "pit_kl26z.h"
+#include "WeightSensor.h"
+
+#define CONVERSIONFACTOR 20
 
 /*****************************************************
  * Pseudocode description:
@@ -16,48 +19,47 @@
  * toggle clock once to reset
  * wait for data to go high before rereading
  */
-unsigned long int readValue();
-unsigned long int calibrate();
+
+//unsigned long int calibrate();
+//unsigned long int readValue();
+//unsigned long int readAverageValue(unsigned long int av);
 
 unsigned long int zero_offset = 0;
 
 int main(void) {
 	int i;
 	int value;
+	int grams = 0;
 	unsigned long int averageValue = 0;
+
 	hardware_init();
 	FRDM_KL26Z_CLK_Configure(); //configure PTC8 as output for clocking hx711
 	FRDM_KL26Z_DATA_Configure(0, 0); //configure PTC9 as input for HX711
-	PRINTF("Weighing scales test code\r\n");
+
+	PRINTF("\r\nWeighing scales test code\r\n");
 	for (i = 0; i < 256; i++)
 				averageValue += readValue();
 	averageValue = averageValue / 256;
 	PRINTF("Initial value %ld\r\n",averageValue);
 	averageValue = 0;
 	PRINTF("Calibrating\r\n");
-	zero_offset = calibrate();
+	zero_offset = calibrate(zero_offset);
 	PRINTF("\n\n\nZero offset from calibration: %ld\r\n\n\n", zero_offset);
 
 	while (1) {
-		for (i = 0; i < 50; i++){
-			value = readValue();
-			averageValue = averageValue + value - zero_offset;
-			PRINTF("\r\n\t\t%ld",value);
-		}
-		averageValue = averageValue / 50;
-		PRINTF("\r\nSample is %ld \r\n", averageValue);
+		averageValue = readAverageValue(averageValue, zero_offset);
+		grams = averageValue/CONVERSIONFACTOR;
+		PRINTF("\r\nSample is %ldg. \r\n", grams);
 		averageValue = 0;
 	}
-
 	return 0;
 }
-
+/*
 unsigned long int calibrate() {
 	unsigned long int average = 0;
 	int i;
-	for (i = 0; i < 256; i++) {
+	for (i = 0; i < 256; i++)
 		average += readValue();
-	}
 	average = average / 256;
 	return average;
 }
@@ -87,3 +89,16 @@ unsigned long int readValue() {
 	sample ^= 0x800000;
 	return sample;
 }
+
+unsigned long int readAverageValue(unsigned long int av){
+	int i;
+	unsigned long int value;
+	for (i = 0; i < 256; i++){
+				value = readValue();
+				av = av + value - zero_offset;
+				PRINTF("\r\n\t\t%ld",value);
+			}
+			av = av / 256;
+			return av;
+}
+*/
