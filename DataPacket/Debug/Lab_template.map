@@ -1867,7 +1867,7 @@ LOAD c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/cr
  .FlashConfig   0x00000400       0x10 ./Project_Settings/Startup_Code/startup_MKL26Z4.o
                 0x00000410                . = ALIGN (0x4)
 
-.text           0x00000410     0x4f24
+.text           0x00000410     0x4fb4
                 0x00000410                . = ALIGN (0x4)
  *(.text)
  .text          0x00000410       0x60 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crtbegin.o
@@ -2005,494 +2005,494 @@ LOAD c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/cr
  .text.NVIC_ClearPendingIRQ
                 0x00002438       0x34 ./Sources/main.o
  .text.calibrate
-                0x0000246c       0x38 ./Sources/main.o
+                0x0000246c       0x48 ./Sources/main.o
                 0x0000246c                calibrate
  .text.readValue
-                0x000024a4       0xdc ./Sources/main.o
-                0x000024a4                readValue
+                0x000024b4       0xdc ./Sources/main.o
+                0x000024b4                readValue
  .text.readAverageValue
-                0x00002580       0x50 ./Sources/main.o
-                0x00002580                readAverageValue
+                0x00002590       0x60 ./Sources/main.o
+                0x00002590                readAverageValue
  .text.FRDM_KL26Z_CLK_Configure
-                0x000025d0       0x54 ./Sources/main.o
-                0x000025d0                FRDM_KL26Z_CLK_Configure
+                0x000025f0       0x54 ./Sources/main.o
+                0x000025f0                FRDM_KL26Z_CLK_Configure
  .text.FRDM_KL26Z_DATA_Configure
-                0x00002624       0xcc ./Sources/main.o
-                0x00002624                FRDM_KL26Z_DATA_Configure
+                0x00002644       0xcc ./Sources/main.o
+                0x00002644                FRDM_KL26Z_DATA_Configure
  .text.DATA_read
-                0x000026f0       0x24 ./Sources/main.o
-                0x000026f0                DATA_read
- .text.main     0x00002714       0x68 ./Sources/main.o
-                0x00002714                main
+                0x00002710       0x24 ./Sources/main.o
+                0x00002710                DATA_read
+ .text.main     0x00002734       0x60 ./Sources/main.o
+                0x00002734                main
  .text.PIT_IRQHandler
-                0x0000277c       0x78 ./Sources/main.o
-                0x0000277c                PIT_IRQHandler
+                0x00002794       0x78 ./Sources/main.o
+                0x00002794                PIT_IRQHandler
  .text.UART1_config
-                0x000027f4       0xb8 ./Sources/main.o
-                0x000027f4                UART1_config
+                0x0000280c       0xb8 ./Sources/main.o
+                0x0000280c                UART1_config
  .text.UART1_IRQHandler
-                0x000028ac        0x8 ./Sources/main.o
-                0x000028ac                UART1_IRQHandler
+                0x000028c4        0x8 ./Sources/main.o
+                0x000028c4                UART1_IRQHandler
  .text.put_char
-                0x000028b4       0x30 ./Sources/main.o
-                0x000028b4                put_char
+                0x000028cc       0x30 ./Sources/main.o
+                0x000028cc                put_char
  .text.enable_UART1_receive_interrupt
-                0x000028e4       0x28 ./Sources/main.o
-                0x000028e4                enable_UART1_receive_interrupt
- *fill*         0x0000290c        0x4 
+                0x000028fc       0x28 ./Sources/main.o
+                0x000028fc                enable_UART1_receive_interrupt
+ *fill*         0x00002924        0x4 
  .text.createPacket
-                0x00002910      0x148 ./Sources/main.o
-                0x00002910                createPacket
+                0x00002928      0x168 ./Sources/main.o
+                0x00002928                createPacket
  .text.init_data_bss
-                0x00002a58       0xc8 ./Project_Settings/Startup_Code/startup.o
-                0x00002a58                init_data_bss
+                0x00002a90       0xc8 ./Project_Settings/Startup_Code/startup.o
+                0x00002a90                init_data_bss
  .text.SystemInit
-                0x00002b20       0x38 ./Project_Settings/Startup_Code/system_MKL26Z4.o
-                0x00002b20                SystemInit
+                0x00002b58       0x38 ./Project_Settings/Startup_Code/system_MKL26Z4.o
+                0x00002b58                SystemInit
  .text.NVIC_EnableIRQ
-                0x00002b58       0x2c ./FRDM_KL26Z/adc.o
+                0x00002b90       0x2c ./FRDM_KL26Z/adc.o
  .text.NVIC_ClearPendingIRQ
-                0x00002b84       0x34 ./FRDM_KL26Z/adc.o
+                0x00002bbc       0x34 ./FRDM_KL26Z/adc.o
  .text.adc0_config
-                0x00002bb8       0xa8 ./FRDM_KL26Z/adc.o
-                0x00002bb8                adc0_config
+                0x00002bf0       0xa8 ./FRDM_KL26Z/adc.o
+                0x00002bf0                adc0_config
  .text.read_adc0
-                0x00002c60       0x44 ./FRDM_KL26Z/adc.o
-                0x00002c60                read_adc0
+                0x00002c98       0x44 ./FRDM_KL26Z/adc.o
+                0x00002c98                read_adc0
  .text.NVIC_EnableIRQ
-                0x00002ca4       0x2c ./FRDM_KL26Z/pit_kl26z.o
+                0x00002cdc       0x2c ./FRDM_KL26Z/pit_kl26z.o
  .text.NVIC_ClearPendingIRQ
-                0x00002cd0       0x34 ./FRDM_KL26Z/pit_kl26z.o
+                0x00002d08       0x34 ./FRDM_KL26Z/pit_kl26z.o
  .text.PIT_Configure_interrupt_mode
-                0x00002d04       0x88 ./FRDM_KL26Z/pit_kl26z.o
-                0x00002d04                PIT_Configure_interrupt_mode
+                0x00002d3c       0x88 ./FRDM_KL26Z/pit_kl26z.o
+                0x00002d3c                PIT_Configure_interrupt_mode
  .text.PORT_HAL_SetMuxMode
-                0x00002d8c       0x4c ./Board/board.o
+                0x00002dc4       0x4c ./Board/board.o
  .text.CLOCK_HAL_SetLpsciSrc
-                0x00002dd8       0x30 ./Board/board.o
+                0x00002e10       0x30 ./Board/board.o
  .text.CLOCK_SYS_SetLpsciSrc
-                0x00002e08       0x2c ./Board/board.o
+                0x00002e40       0x2c ./Board/board.o
  .text.SMC_HAL_SetProtection
-                0x00002e34       0x1c ./Board/board.o
+                0x00002e6c       0x1c ./Board/board.o
  .text.BOARD_InitOsc0
-                0x00002e50       0x40 ./Board/board.o
-                0x00002e50                BOARD_InitOsc0
+                0x00002e88       0x40 ./Board/board.o
+                0x00002e88                BOARD_InitOsc0
  .text.BOARD_InitRtcOsc
-                0x00002e90       0x40 ./Board/board.o
-                0x00002e90                BOARD_InitRtcOsc
+                0x00002ec8       0x40 ./Board/board.o
+                0x00002ec8                BOARD_InitRtcOsc
  .text.BOARD_ClockInit
-                0x00002ed0       0x48 ./Board/board.o
-                0x00002ed0                BOARD_ClockInit
+                0x00002f08       0x48 ./Board/board.o
+                0x00002f08                BOARD_ClockInit
  .text.dbg_uart_init
-                0x00002f18       0x24 ./Board/board.o
-                0x00002f18                dbg_uart_init
+                0x00002f50       0x24 ./Board/board.o
+                0x00002f50                dbg_uart_init
  .text.hardware_init
-                0x00002f3c       0x1c ./Board/hardware_init.o
-                0x00002f3c                hardware_init
+                0x00002f74       0x1c ./Board/hardware_init.o
+                0x00002f74                hardware_init
  .text.PORT_HAL_SetMuxMode
-                0x00002f58       0x4c ./Board/pin_mux.o
+                0x00002f90       0x4c ./Board/pin_mux.o
  .text.configure_lpsci_pins
-                0x00002fa4       0x34 ./Board/pin_mux.o
-                0x00002fa4                configure_lpsci_pins
+                0x00002fdc       0x34 ./Board/pin_mux.o
+                0x00002fdc                configure_lpsci_pins
  .text.UART_HAL_SetBaudRate
-                0x00002fd8       0x34 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_uart_hal.o)
-                0x00002fd8                UART_HAL_SetBaudRate
+                0x00003010       0x34 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_uart_hal.o)
+                0x00003010                UART_HAL_SetBaudRate
  .text.UART_HAL_SetParityMode
-                0x0000300c       0x1e C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_uart_hal.o)
-                0x0000300c                UART_HAL_SetParityMode
+                0x00003044       0x1e C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_uart_hal.o)
+                0x00003044                UART_HAL_SetParityMode
  .text.UART_HAL_SendDataPolling
-                0x0000302a       0x22 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_uart_hal.o)
-                0x0000302a                UART_HAL_SendDataPolling
+                0x00003062       0x22 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_uart_hal.o)
+                0x00003062                UART_HAL_SendDataPolling
  .text.UART_HAL_ReceiveDataPolling
-                0x0000304c       0x38 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_uart_hal.o)
-                0x0000304c                UART_HAL_ReceiveDataPolling
+                0x00003084       0x38 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_uart_hal.o)
+                0x00003084                UART_HAL_ReceiveDataPolling
  .text.LPSCI_HAL_SetBaudRate
-                0x00003084       0xcc C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_lpsci_hal.o)
-                0x00003084                LPSCI_HAL_SetBaudRate
+                0x000030bc       0xcc C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_lpsci_hal.o)
+                0x000030bc                LPSCI_HAL_SetBaudRate
  .text.LPSCI_HAL_SetParityMode
-                0x00003150       0x1e C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_lpsci_hal.o)
-                0x00003150                LPSCI_HAL_SetParityMode
+                0x00003188       0x1e C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_lpsci_hal.o)
+                0x00003188                LPSCI_HAL_SetParityMode
  .text.LPSCI_HAL_SendDataPolling
-                0x0000316e       0x20 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_lpsci_hal.o)
-                0x0000316e                LPSCI_HAL_SendDataPolling
+                0x000031a6       0x20 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_lpsci_hal.o)
+                0x000031a6                LPSCI_HAL_SendDataPolling
  .text.LPSCI_HAL_ReceiveDataPolling
-                0x0000318e       0x36 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_lpsci_hal.o)
-                0x0000318e                LPSCI_HAL_ReceiveDataPolling
+                0x000031c6       0x36 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_lpsci_hal.o)
+                0x000031c6                LPSCI_HAL_ReceiveDataPolling
  .text.SIM_HAL_EnableClock.constprop.7
-                0x000031c4       0x24 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_clock_MKL26Z4.o)
+                0x000031fc       0x24 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_clock_MKL26Z4.o)
  .text.CLOCK_SYS_GetCoreClockFreq
-                0x000031e8       0x20 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_clock_MKL26Z4.o)
-                0x000031e8                CLOCK_SYS_GetCoreClockFreq
+                0x00003220       0x20 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_clock_MKL26Z4.o)
+                0x00003220                CLOCK_SYS_GetCoreClockFreq
  .text.CLOCK_SYS_SetConfiguration
-                0x00003208       0x84 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_clock_MKL26Z4.o)
-                0x00003208                CLOCK_SYS_SetConfiguration
+                0x00003240       0x84 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_clock_MKL26Z4.o)
+                0x00003240                CLOCK_SYS_SetConfiguration
  .text.CLOCK_SYS_FllStableDelay
-                0x0000328c       0x1c C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_clock_MKL26Z4.o)
+                0x000032c4       0x1c C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_clock_MKL26Z4.o)
  .text.CLOCK_SYS_GetSystemClockFreq
-                0x000032a8       0x20 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_clock_MKL26Z4.o)
-                0x000032a8                CLOCK_SYS_GetSystemClockFreq
+                0x000032e0       0x20 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_clock_MKL26Z4.o)
+                0x000032e0                CLOCK_SYS_GetSystemClockFreq
  .text.CLOCK_SYS_GetBusClockFreq
-                0x000032c8       0x18 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_clock_MKL26Z4.o)
-                0x000032c8                CLOCK_SYS_GetBusClockFreq
+                0x00003300       0x18 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_clock_MKL26Z4.o)
+                0x00003300                CLOCK_SYS_GetBusClockFreq
  .text.CLOCK_SYS_GetPllFllClockFreq
-                0x000032e0       0x30 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_clock_MKL26Z4.o)
-                0x000032e0                CLOCK_SYS_GetPllFllClockFreq
+                0x00003318       0x30 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_clock_MKL26Z4.o)
+                0x00003318                CLOCK_SYS_GetPllFllClockFreq
  .text.CLOCK_SYS_GetOsc0ExternalRefClockFreq
-                0x00003310       0x24 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_clock_MKL26Z4.o)
-                0x00003310                CLOCK_SYS_GetOsc0ExternalRefClockFreq
+                0x00003348       0x24 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_clock_MKL26Z4.o)
+                0x00003348                CLOCK_SYS_GetOsc0ExternalRefClockFreq
  .text.CLOCK_SYS_GetLpsciFreq
-                0x00003334       0x34 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_clock_MKL26Z4.o)
-                0x00003334                CLOCK_SYS_GetLpsciFreq
+                0x0000336c       0x34 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_clock_MKL26Z4.o)
+                0x0000336c                CLOCK_SYS_GetLpsciFreq
  .text.CLOCK_SYS_GetUartFreq
-                0x00003368       0x10 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_clock_MKL26Z4.o)
-                0x00003368                CLOCK_SYS_GetUartFreq
+                0x000033a0       0x10 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_clock_MKL26Z4.o)
+                0x000033a0                CLOCK_SYS_GetUartFreq
  .text.CLOCK_SYS_EnablePortClock
-                0x00003378       0x30 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_clock_MKL26Z4.o)
-                0x00003378                CLOCK_SYS_EnablePortClock
+                0x000033b0       0x30 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_clock_MKL26Z4.o)
+                0x000033b0                CLOCK_SYS_EnablePortClock
  .text.CLOCK_SYS_EnableLpsciClock
-                0x000033a8       0x30 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_clock_MKL26Z4.o)
-                0x000033a8                CLOCK_SYS_EnableLpsciClock
+                0x000033e0       0x30 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_clock_MKL26Z4.o)
+                0x000033e0                CLOCK_SYS_EnableLpsciClock
  .text.CLOCK_SYS_EnableUartClock
-                0x000033d8       0x30 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_clock_MKL26Z4.o)
-                0x000033d8                CLOCK_SYS_EnableUartClock
+                0x00003410       0x30 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_clock_MKL26Z4.o)
+                0x00003410                CLOCK_SYS_EnableUartClock
  .text.CLOCK_SYS_SetMcgPeeToFbe
-                0x00003408       0x30 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_clock_manager.o)
+                0x00003440       0x30 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_clock_manager.o)
  .text.CLOCK_SYS_SetMcgMode
-                0x00003438      0x134 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_clock_manager.o)
-                0x00003438                CLOCK_SYS_SetMcgMode
+                0x00003470      0x134 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_clock_manager.o)
+                0x00003470                CLOCK_SYS_SetMcgMode
  .text.CLOCK_SYS_SetOscerConfigration
-                0x0000356c       0x28 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_clock_manager.o)
-                0x0000356c                CLOCK_SYS_SetOscerConfigration
+                0x000035a4       0x28 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_clock_manager.o)
+                0x000035a4                CLOCK_SYS_SetOscerConfigration
  .text.CLOCK_SYS_OscInit
-                0x00003594       0x98 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_clock_manager.o)
-                0x00003594                CLOCK_SYS_OscInit
+                0x000035cc       0x98 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_clock_manager.o)
+                0x000035cc                CLOCK_SYS_OscInit
  .text.CLOCK_SYS_RtcOscInit
-                0x0000362c       0xa0 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_clock_manager.o)
-                0x0000362c                CLOCK_SYS_RtcOscInit
+                0x00003664       0xa0 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_clock_manager.o)
+                0x00003664                CLOCK_SYS_RtcOscInit
  .text.CLOCK_HAL_SetOutDiv
-                0x000036cc       0x1c C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_sim_hal_MKL26Z4.o)
-                0x000036cc                CLOCK_HAL_SetOutDiv
+                0x00003704       0x1c C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_sim_hal_MKL26Z4.o)
+                0x00003704                CLOCK_HAL_SetOutDiv
  .text.OSC_HAL_SetCapacitor
-                0x000036e8        0xe C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_osc_hal.o)
-                0x000036e8                OSC_HAL_SetCapacitor
- *fill*         0x000036f6        0x2 
+                0x00003720        0xe C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_osc_hal.o)
+                0x00003720                OSC_HAL_SetCapacitor
+ *fill*         0x0000372e        0x2 
  .text.CLOCK_HAL_TestOscFreq
-                0x000036f8        0xc C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_mcg_hal.o)
-                0x000036f8                CLOCK_HAL_TestOscFreq
+                0x00003730        0xc C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_mcg_hal.o)
+                0x00003730                CLOCK_HAL_TestOscFreq
  .text.CLOCK_HAL_TestFllExternalRefFreq
-                0x00003704       0x36 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_mcg_hal.o)
-                0x00003704                CLOCK_HAL_TestFllExternalRefFreq
- *fill*         0x0000373a        0x2 
+                0x0000373c       0x36 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_mcg_hal.o)
+                0x0000373c                CLOCK_HAL_TestFllExternalRefFreq
+ *fill*         0x00003772        0x2 
  .text.CLOCK_HAL_GetFllRefClk
-                0x0000373c       0x44 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_mcg_hal.o)
-                0x0000373c                CLOCK_HAL_GetFllRefClk
+                0x00003774       0x44 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_mcg_hal.o)
+                0x00003774                CLOCK_HAL_GetFllRefClk
  .text.CLOCK_HAL_TestFllFreq
-                0x00003780       0x38 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_mcg_hal.o)
-                0x00003780                CLOCK_HAL_TestFllFreq
+                0x000037b8       0x38 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_mcg_hal.o)
+                0x000037b8                CLOCK_HAL_TestFllFreq
  .text.CLOCK_HAL_GetFllClk
-                0x000037b8       0x40 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_mcg_hal.o)
-                0x000037b8                CLOCK_HAL_GetFllClk
+                0x000037f0       0x40 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_mcg_hal.o)
+                0x000037f0                CLOCK_HAL_GetFllClk
  .text.CLOCK_HAL_UpdateFastClkInternalRefDiv
-                0x000037f8       0x60 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_mcg_hal.o)
-                0x000037f8                CLOCK_HAL_UpdateFastClkInternalRefDiv
+                0x00003830       0x60 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_mcg_hal.o)
+                0x00003830                CLOCK_HAL_UpdateFastClkInternalRefDiv
  .text.CLOCK_HAL_GetPll0Clk
-                0x00003858       0x48 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_mcg_hal.o)
-                0x00003858                CLOCK_HAL_GetPll0Clk
+                0x00003890       0x48 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_mcg_hal.o)
+                0x00003890                CLOCK_HAL_GetPll0Clk
  .text.CLOCK_HAL_EnablePll0InFllMode
-                0x000038a0       0x38 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_mcg_hal.o)
-                0x000038a0                CLOCK_HAL_EnablePll0InFllMode
+                0x000038d8       0x38 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_mcg_hal.o)
+                0x000038d8                CLOCK_HAL_EnablePll0InFllMode
  .text.CLOCK_HAL_GetInternalRefClk
-                0x000038d8       0x40 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_mcg_hal.o)
-                0x000038d8                CLOCK_HAL_GetInternalRefClk
+                0x00003910       0x40 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_mcg_hal.o)
+                0x00003910                CLOCK_HAL_GetInternalRefClk
  .text.CLOCK_HAL_GetOutClk
-                0x00003918       0x48 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_mcg_hal.o)
-                0x00003918                CLOCK_HAL_GetOutClk
+                0x00003950       0x48 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_mcg_hal.o)
+                0x00003950                CLOCK_HAL_GetOutClk
  .text.CLOCK_HAL_SetOsc0Mode
-                0x00003960       0x24 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_mcg_hal.o)
-                0x00003960                CLOCK_HAL_SetOsc0Mode
+                0x00003998       0x24 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_mcg_hal.o)
+                0x00003998                CLOCK_HAL_SetOsc0Mode
  .text.CLOCK_HAL_PrepareOsc.isra.0
-                0x00003984       0x1e C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_mcg_hal_modes.o)
- *fill*         0x000039a2        0x2 
+                0x000039bc       0x1e C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_mcg_hal_modes.o)
+ *fill*         0x000039da        0x2 
  .text.CLOCK_HAL_GetMcgMode
-                0x000039a4       0x8c C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_mcg_hal_modes.o)
-                0x000039a4                CLOCK_HAL_GetMcgMode
+                0x000039dc       0x8c C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_mcg_hal_modes.o)
+                0x000039dc                CLOCK_HAL_GetMcgMode
  .text.CLOCK_HAL_SetFbiMode
-                0x00003a30       0xc0 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_mcg_hal_modes.o)
-                0x00003a30                CLOCK_HAL_SetFbiMode
+                0x00003a68       0xc0 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_mcg_hal_modes.o)
+                0x00003a68                CLOCK_HAL_SetFbiMode
  .text.CLOCK_HAL_SetFbeMode
-                0x00003af0       0xd0 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_mcg_hal_modes.o)
-                0x00003af0                CLOCK_HAL_SetFbeMode
+                0x00003b28       0xd0 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_mcg_hal_modes.o)
+                0x00003b28                CLOCK_HAL_SetFbeMode
  .text.CLOCK_HAL_SetPbeMode
-                0x00003bc0       0xc8 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_mcg_hal_modes.o)
-                0x00003bc0                CLOCK_HAL_SetPbeMode
+                0x00003bf8       0xc8 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_mcg_hal_modes.o)
+                0x00003bf8                CLOCK_HAL_SetPbeMode
  .text.__assert_func
-                0x00003c88       0x3c c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-assert.o)
-                0x00003c88                __assert_func
- .text.exit     0x00003cc4       0x2c c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-exit.o)
-                0x00003cc4                exit
- .text.fprintf  0x00003cf0       0x24 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-fprintf.o)
-                0x00003cf0                fiprintf
-                0x00003cf0                fprintf
+                0x00003cc0       0x3c c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-assert.o)
+                0x00003cc0                __assert_func
+ .text.exit     0x00003cfc       0x2c c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-exit.o)
+                0x00003cfc                exit
+ .text.fprintf  0x00003d28       0x24 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-fprintf.o)
+                0x00003d28                fiprintf
+                0x00003d28                fprintf
  .text.__libc_init_array
-                0x00003d14       0x4c c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-init.o)
-                0x00003d14                __libc_init_array
- .text.memset   0x00003d60       0x10 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-memset.o)
-                0x00003d60                memset
- .text._free_r  0x00003d70       0x90 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-nano-freer.o)
-                0x00003d70                _free_r
+                0x00003d4c       0x4c c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-init.o)
+                0x00003d4c                __libc_init_array
+ .text.memset   0x00003d98       0x10 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-memset.o)
+                0x00003d98                memset
+ .text._free_r  0x00003da8       0x90 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-nano-freer.o)
+                0x00003da8                _free_r
  .text._malloc_r
-                0x00003e00       0xa8 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-nano-mallocr.o)
-                0x00003e00                _malloc_r
- .text._sbrk_r  0x00003ea8       0x24 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-sbrkr.o)
-                0x00003ea8                _sbrk_r
- .text.strlen   0x00003ecc        0xe c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-strlen.o)
-                0x00003ecc                strlen
+                0x00003e38       0xa8 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-nano-mallocr.o)
+                0x00003e38                _malloc_r
+ .text._sbrk_r  0x00003ee0       0x24 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-sbrkr.o)
+                0x00003ee0                _sbrk_r
+ .text.strlen   0x00003f04        0xe c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-strlen.o)
+                0x00003f04                strlen
  .text.__sfputc_r
-                0x00003eda       0x2a c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-vfprintf.o)
+                0x00003f12       0x2a c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-vfprintf.o)
  .text.__sfputs_r
-                0x00003f04       0x24 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-vfprintf.o)
-                0x00003f04                __sfputs_r
+                0x00003f3c       0x24 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-vfprintf.o)
+                0x00003f3c                __sfputs_r
  .text._vfprintf_r
-                0x00003f28      0x210 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-vfprintf.o)
-                0x00003f28                _vfprintf_r
-                0x00003f28                _vfiprintf_r
+                0x00003f60      0x210 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-vfprintf.o)
+                0x00003f60                _vfprintf_r
+                0x00003f60                _vfiprintf_r
  .text._printf_common
-                0x00004138       0xe8 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-vfprintf_i.o)
-                0x00004138                _printf_common
+                0x00004170       0xe8 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-vfprintf_i.o)
+                0x00004170                _printf_common
  .text._printf_i
-                0x00004220      0x22c c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-vfprintf_i.o)
-                0x00004220                _printf_i
+                0x00004258      0x22c c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-vfprintf_i.o)
+                0x00004258                _printf_i
  .text.__swbuf_r
-                0x0000444c       0xb0 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-wbuf.o)
-                0x0000444c                __swbuf_r
+                0x00004484       0xb0 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-wbuf.o)
+                0x00004484                __swbuf_r
  .text.__swsetup_r
-                0x000044fc       0xe4 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-wsetup.o)
-                0x000044fc                __swsetup_r
- .text.abort    0x000045e0        0xe c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-abort.o)
-                0x000045e0                abort
+                0x00004534       0xe4 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-wsetup.o)
+                0x00004534                __swsetup_r
+ .text.abort    0x00004618        0xe c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-abort.o)
+                0x00004618                abort
  .text.__sflush_r
-                0x000045ee      0x112 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-fflush.o)
-                0x000045ee                __sflush_r
+                0x00004626      0x112 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-fflush.o)
+                0x00004626                __sflush_r
  .text._fflush_r
-                0x00004700       0x58 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-fflush.o)
-                0x00004700                _fflush_r
+                0x00004738       0x58 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-fflush.o)
+                0x00004738                _fflush_r
  .text._cleanup_r
-                0x00004758       0x34 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-findfp.o)
-                0x00004758                _cleanup_r
+                0x00004790       0x34 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-findfp.o)
+                0x00004790                _cleanup_r
  .text.std.isra.0
-                0x0000478c       0x48 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-findfp.o)
+                0x000047c4       0x48 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-findfp.o)
  .text.__sfmoreglue
-                0x000047d4       0x2c c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-findfp.o)
-                0x000047d4                __sfmoreglue
- .text.__sinit  0x00004800       0x64 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-findfp.o)
-                0x00004800                __sinit
- .text.__sfp    0x00004864       0x7c c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-findfp.o)
-                0x00004864                __sfp
+                0x0000480c       0x2c c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-findfp.o)
+                0x0000480c                __sfmoreglue
+ .text.__sinit  0x00004838       0x64 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-findfp.o)
+                0x00004838                __sinit
+ .text.__sfp    0x0000489c       0x7c c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-findfp.o)
+                0x0000489c                __sfp
  .text.__smakebuf_r
-                0x000048e0       0xa0 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-makebuf.o)
-                0x000048e0                __smakebuf_r
- .text.memchr   0x00004980       0x16 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-memchr-stub.o)
-                0x00004980                memchr
+                0x00004918       0xa0 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-makebuf.o)
+                0x00004918                __smakebuf_r
+ .text.memchr   0x000049b8       0x16 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-memchr-stub.o)
+                0x000049b8                memchr
  .text._raise_r
-                0x00004996       0x56 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-signal.o)
-                0x00004996                _raise_r
- .text.raise    0x000049ec       0x14 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-signal.o)
-                0x000049ec                raise
- .text._kill_r  0x00004a00       0x24 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-signalr.o)
-                0x00004a00                _kill_r
+                0x000049ce       0x56 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-signal.o)
+                0x000049ce                _raise_r
+ .text.raise    0x00004a24       0x14 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-signal.o)
+                0x00004a24                raise
+ .text._kill_r  0x00004a38       0x24 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-signalr.o)
+                0x00004a38                _kill_r
  .text._getpid_r
-                0x00004a24        0x8 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-signalr.o)
-                0x00004a24                _getpid_r
- .text.__sread  0x00004a2c       0x28 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-stdio.o)
-                0x00004a2c                __sread
+                0x00004a5c        0x8 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-signalr.o)
+                0x00004a5c                _getpid_r
+ .text.__sread  0x00004a64       0x28 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-stdio.o)
+                0x00004a64                __sread
  .text.__swrite
-                0x00004a54       0x38 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-stdio.o)
-                0x00004a54                __swrite
- .text.__sseek  0x00004a8c       0x2c c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-stdio.o)
-                0x00004a8c                __sseek
+                0x00004a8c       0x38 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-stdio.o)
+                0x00004a8c                __swrite
+ .text.__sseek  0x00004ac4       0x2c c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-stdio.o)
+                0x00004ac4                __sseek
  .text.__sclose
-                0x00004ab8        0xc c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-stdio.o)
-                0x00004ab8                __sclose
+                0x00004af0        0xc c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-stdio.o)
+                0x00004af0                __sclose
  .text._write_r
-                0x00004ac4       0x28 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-writer.o)
-                0x00004ac4                _write_r
+                0x00004afc       0x28 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-writer.o)
+                0x00004afc                _write_r
  .text._close_r
-                0x00004aec       0x24 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-closer.o)
-                0x00004aec                _close_r
+                0x00004b24       0x24 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-closer.o)
+                0x00004b24                _close_r
  .text._fstat_r
-                0x00004b10       0x24 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-fstatr.o)
-                0x00004b10                _fstat_r
+                0x00004b48       0x24 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-fstatr.o)
+                0x00004b48                _fstat_r
  .text._isatty_r
-                0x00004b34       0x24 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-isattyr.o)
-                0x00004b34                _isatty_r
+                0x00004b6c       0x24 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-isattyr.o)
+                0x00004b6c                _isatty_r
  .text._lseek_r
-                0x00004b58       0x28 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-lseekr.o)
-                0x00004b58                _lseek_r
- .text._read_r  0x00004b80       0x28 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-readr.o)
-                0x00004b80                _read_r
- .text._close   0x00004ba8       0x10 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libnosys.a(close.o)
-                0x00004ba8                _close
- .text._fstat   0x00004bb8       0x10 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libnosys.a(fstat.o)
-                0x00004bb8                _fstat
- .text._getpid  0x00004bc8       0x10 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libnosys.a(getpid.o)
-                0x00004bc8                _getpid
- .text._isatty  0x00004bd8       0x10 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libnosys.a(isatty.o)
-                0x00004bd8                _isatty
- .text._kill    0x00004be8       0x10 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libnosys.a(kill.o)
-                0x00004be8                _kill
- .text._lseek   0x00004bf8       0x10 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libnosys.a(lseek.o)
-                0x00004bf8                _lseek
- .text._sbrk    0x00004c08       0x34 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libnosys.a(sbrk.o)
-                0x00004c08                _sbrk
- .text._exit    0x00004c3c        0x4 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libnosys.a(_exit.o)
-                0x00004c3c                _exit
+                0x00004b90       0x28 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-lseekr.o)
+                0x00004b90                _lseek_r
+ .text._read_r  0x00004bb8       0x28 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-readr.o)
+                0x00004bb8                _read_r
+ .text._close   0x00004be0       0x10 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libnosys.a(close.o)
+                0x00004be0                _close
+ .text._fstat   0x00004bf0       0x10 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libnosys.a(fstat.o)
+                0x00004bf0                _fstat
+ .text._getpid  0x00004c00       0x10 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libnosys.a(getpid.o)
+                0x00004c00                _getpid
+ .text._isatty  0x00004c10       0x10 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libnosys.a(isatty.o)
+                0x00004c10                _isatty
+ .text._kill    0x00004c20       0x10 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libnosys.a(kill.o)
+                0x00004c20                _kill
+ .text._lseek   0x00004c30       0x10 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libnosys.a(lseek.o)
+                0x00004c30                _lseek
+ .text._sbrk    0x00004c40       0x34 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libnosys.a(sbrk.o)
+                0x00004c40                _sbrk
+ .text._exit    0x00004c74        0x4 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libnosys.a(_exit.o)
+                0x00004c74                _exit
  *(.rodata)
- .rodata        0x00004c40        0xc ./Utilities/fsl_debug_console.o
- .rodata        0x00004c4c        0x8 ./Sources/main.o
- .rodata        0x00004c54       0x44 ./Board/board.o
- .rodata        0x00004c98       0x44 ./Board/pin_mux.o
- .rodata        0x00004cdc       0x40 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\libgcc.a(divsf3.o)
- .rodata        0x00004d1c       0x40 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\libgcc.a(mulsf3.o)
- .rodata        0x00004d5c       0x40 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\libgcc.a(muldf3.o)
+ .rodata        0x00004c78        0xc ./Utilities/fsl_debug_console.o
+ .rodata        0x00004c84       0x60 ./Sources/main.o
+ .rodata        0x00004ce4       0x44 ./Board/board.o
+ .rodata        0x00004d28       0x44 ./Board/pin_mux.o
+ .rodata        0x00004d6c       0x40 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\libgcc.a(divsf3.o)
+ .rodata        0x00004dac       0x40 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\libgcc.a(mulsf3.o)
+ .rodata        0x00004dec       0x40 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\libgcc.a(muldf3.o)
  *(.rodata*)
  .rodata._doprint
-                0x00004d9c       0xc8 ./Utilities/print_scan.o
+                0x00004e2c       0xc8 ./Utilities/print_scan.o
  .rodata.FRDM_KL26Z_DATA_Configure
-                0x00004e64       0x1c ./Sources/main.o
+                0x00004ef4       0x1c ./Sources/main.o
  .rodata.g_defaultClockConfigRun
-                0x00004e80       0x14 ./Board/board.o
-                0x00004e80                g_defaultClockConfigRun
+                0x00004f10       0x14 ./Board/board.o
+                0x00004f10                g_defaultClockConfigRun
  .rodata.__func__.5149
-                0x00004e94       0x14 ./Board/board.o
+                0x00004f24       0x14 ./Board/board.o
  .rodata.__func__.5125
-                0x00004ea8       0x14 ./Board/pin_mux.o
+                0x00004f38       0x14 ./Board/pin_mux.o
  .rodata.uartGateTable
-                0x00004ebc        0x3 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_clock_MKL26Z4.o)
+                0x00004f4c        0x3 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_clock_MKL26Z4.o)
  .rodata.__func__.6205
-                0x00004ebf       0x1b C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_clock_MKL26Z4.o)
+                0x00004f4f       0x1b C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_clock_MKL26Z4.o)
  .rodata.__func__.6351
-                0x00004eda       0x1a C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_clock_MKL26Z4.o)
+                0x00004f6a       0x1a C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_clock_MKL26Z4.o)
  .rodata.str1.1
-                0x00004ef4      0x225 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_clock_MKL26Z4.o)
+                0x00004f84      0x225 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_clock_MKL26Z4.o)
  .rodata.portGateTable
-                0x00005119        0x5 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_clock_MKL26Z4.o)
+                0x000051a9        0x5 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_clock_MKL26Z4.o)
  .rodata.__func__.6424
-                0x0000511e       0x1b C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_clock_MKL26Z4.o)
+                0x000051ae       0x1b C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_clock_MKL26Z4.o)
  .rodata.__func__.6429
-                0x00005139       0x1a C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_clock_MKL26Z4.o)
+                0x000051c9       0x1a C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_clock_MKL26Z4.o)
  .rodata.__func__.6613
-                0x00005153       0x15 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_clock_manager.o)
+                0x000051e3       0x15 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_clock_manager.o)
  .rodata.str1.1
-                0x00005168       0xaf C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_clock_manager.o)
+                0x000051f8       0xaf C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_clock_manager.o)
  .rodata.__func__.6596
-                0x00005217       0x12 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_clock_manager.o)
- *fill*         0x00005229        0x3 
+                0x000052a7       0x12 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_clock_manager.o)
+ *fill*         0x000052b9        0x3 
  .rodata.g_oscBase
-                0x0000522c        0x4 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_clock_manager_common.o)
-                0x0000522c                g_oscBase
+                0x000052bc        0x4 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_clock_manager_common.o)
+                0x000052bc                g_oscBase
  .rodata.g_rtcBase
-                0x00005230        0x4 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_rtc_common.o)
-                0x00005230                g_rtcBase
+                0x000052c0        0x4 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_rtc_common.o)
+                0x000052c0                g_rtcBase
  .rodata.fllFactorTable.5213
-                0x00005234       0x10 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_mcg_hal.o)
+                0x000052c4       0x10 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_mcg_hal.o)
  .rodata.str1.1
-                0x00005244       0x3c c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-assert.o)
+                0x000052d4       0x3c c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-assert.o)
                                  0x3d (size before relaxing)
  .rodata.str1.1
-                0x00005280        0x2 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-impure.o)
- *fill*         0x00005282        0x2 
+                0x00005310        0x2 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-impure.o)
+ *fill*         0x00005312        0x2 
  .rodata._global_impure_ptr
-                0x00005284        0x4 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-impure.o)
-                0x00005284                _global_impure_ptr
+                0x00005314        0x4 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-impure.o)
+                0x00005314                _global_impure_ptr
  .rodata.str1.1
-                0x00005288       0x11 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-vfprintf.o)
+                0x00005318       0x11 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-vfprintf.o)
  .rodata.str1.1
-                0x00005299       0x22 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-vfprintf_i.o)
- *fill*         0x000052bb        0x1 
+                0x00005329       0x22 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-vfprintf_i.o)
+ *fill*         0x0000534b        0x1 
  .rodata.__sf_fake_stdin
-                0x000052bc       0x20 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-findfp.o)
-                0x000052bc                __sf_fake_stdin
+                0x0000534c       0x20 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-findfp.o)
+                0x0000534c                __sf_fake_stdin
  .rodata.__sf_fake_stdout
-                0x000052dc       0x20 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-findfp.o)
-                0x000052dc                __sf_fake_stdout
+                0x0000536c       0x20 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-findfp.o)
+                0x0000536c                __sf_fake_stdout
  .rodata.__sf_fake_stderr
-                0x000052fc       0x20 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-findfp.o)
-                0x000052fc                __sf_fake_stderr
+                0x0000538c       0x20 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_s.a(lib_a-findfp.o)
+                0x0000538c                __sf_fake_stderr
  *(.glue_7)
  .glue_7        0x00000000        0x0 linker stubs
  *(.glue_7t)
  .glue_7t       0x00000000        0x0 linker stubs
  *(.eh_frame)
- .eh_frame      0x0000531c        0x0 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crtbegin.o
+ .eh_frame      0x000053ac        0x0 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crtbegin.o
  *(.init)
- .init          0x0000531c        0x4 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crti.o
-                0x0000531c                _init
- .init          0x00005320        0x8 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crtn.o
+ .init          0x000053ac        0x4 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crti.o
+                0x000053ac                _init
+ .init          0x000053b0        0x8 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crtn.o
  *(.fini)
- .fini          0x00005328        0x4 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crti.o
-                0x00005328                _fini
- .fini          0x0000532c        0x8 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crtn.o
-                0x00005334                . = ALIGN (0x4)
+ .fini          0x000053b8        0x4 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crti.o
+                0x000053b8                _fini
+ .fini          0x000053bc        0x8 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crtn.o
+                0x000053c4                . = ALIGN (0x4)
 
-.vfp11_veneer   0x00005334        0x0
+.vfp11_veneer   0x000053c4        0x0
  .vfp11_veneer  0x00000000        0x0 linker stubs
 
-.v4_bx          0x00005334        0x0
+.v4_bx          0x000053c4        0x0
  .v4_bx         0x00000000        0x0 linker stubs
 
-.iplt           0x00005334        0x0
+.iplt           0x000053c4        0x0
  .iplt          0x00000000        0x0 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crtbegin.o
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
 
-.ARM            0x00005334        0x8
-                0x00005334                __exidx_start = .
+.ARM            0x000053c4        0x8
+                0x000053c4                __exidx_start = .
  *(.ARM.exidx*)
- .ARM.exidx     0x00005334        0x8 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m/crt0.o
-                0x0000533c                __exidx_end = .
+ .ARM.exidx     0x000053c4        0x8 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m/crt0.o
+                0x000053cc                __exidx_end = .
 
-.rel.dyn        0x0000533c        0x0
+.rel.dyn        0x000053cc        0x0
  .rel.iplt      0x00000000        0x0 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crtbegin.o
 
-.ctors          0x0000533c        0x0
-                0x0000533c                __CTOR_LIST__ = .
+.ctors          0x000053cc        0x0
+                0x000053cc                __CTOR_LIST__ = .
  *crtbegin.o(.ctors)
  *crtbegin?.o(.ctors)
  *(EXCLUDE_FILE(*crtend.o *crtend?.o) .ctors)
  *(SORT(.ctors.*))
  *(.ctors)
-                0x0000533c                __CTOR_END__ = .
+                0x000053cc                __CTOR_END__ = .
 
-.dtors          0x0000533c        0x0
-                0x0000533c                __DTOR_LIST__ = .
+.dtors          0x000053cc        0x0
+                0x000053cc                __DTOR_LIST__ = .
  *crtbegin.o(.dtors)
  *crtbegin?.o(.dtors)
  *(EXCLUDE_FILE(*crtend.o *crtend?.o) .dtors)
  *(SORT(.dtors.*))
  *(.dtors)
-                0x0000533c                __DTOR_END__ = .
+                0x000053cc                __DTOR_END__ = .
 
-.preinit_array  0x0000533c        0x0
-                0x0000533c                PROVIDE (__preinit_array_start, .)
+.preinit_array  0x000053cc        0x0
+                0x000053cc                PROVIDE (__preinit_array_start, .)
  *(.preinit_array*)
-                0x0000533c                PROVIDE (__preinit_array_end, .)
+                0x000053cc                PROVIDE (__preinit_array_end, .)
 
-.init_array     0x0000533c        0x4
-                0x0000533c                PROVIDE (__init_array_start, .)
+.init_array     0x000053cc        0x4
+                0x000053cc                PROVIDE (__init_array_start, .)
  *(SORT(.init_array.*))
  *(.init_array*)
- .init_array    0x0000533c        0x4 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crtbegin.o
-                0x00005340                PROVIDE (__init_array_end, .)
+ .init_array    0x000053cc        0x4 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crtbegin.o
+                0x000053d0                PROVIDE (__init_array_end, .)
 
-.fini_array     0x00005340        0x4
-                0x00005340                PROVIDE (__fini_array_start, .)
+.fini_array     0x000053d0        0x4
+                0x000053d0                PROVIDE (__fini_array_start, .)
  *(SORT(.fini_array.*))
  *(.fini_array*)
- .fini_array    0x00005340        0x4 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crtbegin.o
-                0x00005344                PROVIDE (__fini_array_end, .)
-                0x00005344                __etext = .
-                0x00005344                __DATA_ROM = .
+ .fini_array    0x000053d0        0x4 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crtbegin.o
+                0x000053d4                PROVIDE (__fini_array_end, .)
+                0x000053d4                __etext = .
+                0x000053d4                __DATA_ROM = .
 
 .mtb            0x1ffff000        0x0
                 0x1ffff000                . = ALIGN (0x8)
@@ -2513,7 +2513,7 @@ LOAD c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/cr
                 0x00000000                __VECTOR_RAM = DEFINED (__ram_vector_table__)?__VECTOR_RAM__:ORIGIN (m_interrupts)
                 0x00000000                __RAM_VECTOR_TABLE_SIZE_BYTES = DEFINED (__ram_vector_table__)?(__interrupts_ram_end__ - __interrupts_ram_start__):0x0
 
-.data           0x1ffff000       0x78 load address 0x00005344
+.data           0x1ffff000       0x78 load address 0x000053d4
                 0x1ffff000                . = ALIGN (0x4)
                 0x1ffff000                __DATA_RAM = .
                 0x1ffff000                __data_start__ = .
@@ -2541,12 +2541,12 @@ LOAD c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/cr
  .jcr           0x1ffff074        0x4 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crtend.o
                 0x1ffff078                . = ALIGN (0x4)
                 0x1ffff078                __data_end__ = .
-                0x000053bc                __DATA_END = (__DATA_ROM + (__data_end__ - __data_start__))
+                0x0000544c                __DATA_END = (__DATA_ROM + (__data_end__ - __data_start__))
 
-.igot.plt       0x1ffff078        0x0 load address 0x000053bc
+.igot.plt       0x1ffff078        0x0 load address 0x0000544c
  .igot.plt      0x00000000        0x0 c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crtbegin.o
 
-.bss            0x1ffff078       0x58 load address 0x000053bc
+.bss            0x1ffff078       0x58 load address 0x0000544c
                 0x1ffff078                . = ALIGN (0x4)
                 0x1ffff078                __START_BSS = .
                 0x1ffff078                __bss_start__ = .
@@ -2585,7 +2585,7 @@ LOAD c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/cr
                 0x1ffff0d0                __bss_end__ = .
                 0x1ffff0d0                __END_BSS = .
 
-.heap           0x1ffff0d0      0x400 load address 0x00005414
+.heap           0x1ffff0d0      0x400 load address 0x000054a4
                 0x1ffff0d0                . = ALIGN (0x8)
                 0x1ffff0d0                __end__ = .
                 0x1ffff0d0                PROVIDE (end, .)
@@ -2594,7 +2594,7 @@ LOAD c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/cr
  *fill*         0x1ffff0d0      0x400 
                 0x1ffff4d0                __HeapLimit = .
 
-.stack          0x1ffff4d0      0x400 load address 0x00005814
+.stack          0x1ffff4d0      0x400 load address 0x000058a4
                 0x1ffff4d0                . = ALIGN (0x8)
                 0x1ffff8d0                . = (. + STACK_SIZE)
  *fill*         0x1ffff4d0      0x400 
@@ -2770,28 +2770,28 @@ LOAD c:/freescale/kds_v3/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/cr
                 0x00000001                ASSERT ((__StackLimit >= __HeapLimit), region m_data overflowed with stack and heap)
 OUTPUT(Lab_template.elf elf32-littlearm)
 
-.debug_info     0x00000000     0xc576
+.debug_info     0x00000000     0xc588
  .debug_info    0x00000000      0xa71 ./Utilities/fsl_debug_console.o
  .debug_info    0x00000a71      0x5eb ./Utilities/print_scan.o
- .debug_info    0x0000105c      0xb57 ./Sources/main.o
- .debug_info    0x00001bb3      0x296 ./Project_Settings/Startup_Code/startup.o
- .debug_info    0x00001e49       0x98 ./Project_Settings/Startup_Code/startup_MKL26Z4.o
- .debug_info    0x00001ee1      0x432 ./Project_Settings/Startup_Code/system_MKL26Z4.o
- .debug_info    0x00002313      0x6f6 ./FRDM_KL26Z/adc.o
- .debug_info    0x00002a09      0x60e ./FRDM_KL26Z/pit_kl26z.o
- .debug_info    0x00003017      0xa43 ./Board/board.o
- .debug_info    0x00003a5a       0xe2 ./Board/hardware_init.o
- .debug_info    0x00003b3c      0x4e6 ./Board/pin_mux.o
- .debug_info    0x00004022      0x934 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_uart_hal.o)
- .debug_info    0x00004956      0x9e2 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_lpsci_hal.o)
- .debug_info    0x00005338     0x25f0 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_clock_MKL26Z4.o)
- .debug_info    0x00007928     0x1c61 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_clock_manager.o)
- .debug_info    0x00009589      0x449 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_clock_manager_common.o)
- .debug_info    0x000099d2      0xbe4 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_sim_hal_MKL26Z4.o)
- .debug_info    0x0000a5b6      0x262 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_rtc_common.o)
- .debug_info    0x0000a818       0xef C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_osc_hal.o)
- .debug_info    0x0000a907      0xd34 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_mcg_hal.o)
- .debug_info    0x0000b63b      0xf3b C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_mcg_hal_modes.o)
+ .debug_info    0x0000105c      0xb69 ./Sources/main.o
+ .debug_info    0x00001bc5      0x296 ./Project_Settings/Startup_Code/startup.o
+ .debug_info    0x00001e5b       0x98 ./Project_Settings/Startup_Code/startup_MKL26Z4.o
+ .debug_info    0x00001ef3      0x432 ./Project_Settings/Startup_Code/system_MKL26Z4.o
+ .debug_info    0x00002325      0x6f6 ./FRDM_KL26Z/adc.o
+ .debug_info    0x00002a1b      0x60e ./FRDM_KL26Z/pit_kl26z.o
+ .debug_info    0x00003029      0xa43 ./Board/board.o
+ .debug_info    0x00003a6c       0xe2 ./Board/hardware_init.o
+ .debug_info    0x00003b4e      0x4e6 ./Board/pin_mux.o
+ .debug_info    0x00004034      0x934 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_uart_hal.o)
+ .debug_info    0x00004968      0x9e2 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_lpsci_hal.o)
+ .debug_info    0x0000534a     0x25f0 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_clock_MKL26Z4.o)
+ .debug_info    0x0000793a     0x1c61 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_clock_manager.o)
+ .debug_info    0x0000959b      0x449 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_clock_manager_common.o)
+ .debug_info    0x000099e4      0xbe4 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_sim_hal_MKL26Z4.o)
+ .debug_info    0x0000a5c8      0x262 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_rtc_common.o)
+ .debug_info    0x0000a82a       0xef C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_osc_hal.o)
+ .debug_info    0x0000a919      0xd34 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_mcg_hal.o)
+ .debug_info    0x0000b64d      0xf3b C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_mcg_hal_modes.o)
 
 .debug_abbrev   0x00000000     0x2593
  .debug_abbrev  0x00000000      0x23a ./Utilities/fsl_debug_console.o
@@ -2952,69 +2952,69 @@ OUTPUT(Lab_template.elf elf32-littlearm)
  .debug_macro   0x000153f7      0x256 ./Board/hardware_init.o
  .debug_macro   0x0001564d      0x183 ./Board/pin_mux.o
 
-.debug_line     0x00000000     0x5a25
+.debug_line     0x00000000     0x5a28
  .debug_line    0x00000000      0x79b ./Utilities/fsl_debug_console.o
  .debug_line    0x0000079b      0x63b ./Utilities/print_scan.o
- .debug_line    0x00000dd6      0x73b ./Sources/main.o
- .debug_line    0x00001511      0x34b ./Project_Settings/Startup_Code/startup.o
- .debug_line    0x0000185c       0x6c ./Project_Settings/Startup_Code/startup_MKL26Z4.o
- .debug_line    0x000018c8      0x36e ./Project_Settings/Startup_Code/system_MKL26Z4.o
- .debug_line    0x00001c36      0x38b ./FRDM_KL26Z/adc.o
- .debug_line    0x00001fc1      0x37e ./FRDM_KL26Z/pit_kl26z.o
- .debug_line    0x0000233f      0x669 ./Board/board.o
- .debug_line    0x000029a8      0x5bd ./Board/hardware_init.o
- .debug_line    0x00002f65      0x516 ./Board/pin_mux.o
- .debug_line    0x0000347b      0x38a C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_uart_hal.o)
- .debug_line    0x00003805      0x3d7 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_lpsci_hal.o)
- .debug_line    0x00003bdc      0x96c C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_clock_MKL26Z4.o)
- .debug_line    0x00004548      0x614 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_clock_manager.o)
- .debug_line    0x00004b5c      0x14e C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_clock_manager_common.o)
- .debug_line    0x00004caa      0x343 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_sim_hal_MKL26Z4.o)
- .debug_line    0x00004fed       0xf4 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_rtc_common.o)
- .debug_line    0x000050e1       0xfe C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_osc_hal.o)
- .debug_line    0x000051df      0x3e7 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_mcg_hal.o)
- .debug_line    0x000055c6      0x45f C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_mcg_hal_modes.o)
+ .debug_line    0x00000dd6      0x73e ./Sources/main.o
+ .debug_line    0x00001514      0x34b ./Project_Settings/Startup_Code/startup.o
+ .debug_line    0x0000185f       0x6c ./Project_Settings/Startup_Code/startup_MKL26Z4.o
+ .debug_line    0x000018cb      0x36e ./Project_Settings/Startup_Code/system_MKL26Z4.o
+ .debug_line    0x00001c39      0x38b ./FRDM_KL26Z/adc.o
+ .debug_line    0x00001fc4      0x37e ./FRDM_KL26Z/pit_kl26z.o
+ .debug_line    0x00002342      0x669 ./Board/board.o
+ .debug_line    0x000029ab      0x5bd ./Board/hardware_init.o
+ .debug_line    0x00002f68      0x516 ./Board/pin_mux.o
+ .debug_line    0x0000347e      0x38a C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_uart_hal.o)
+ .debug_line    0x00003808      0x3d7 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_lpsci_hal.o)
+ .debug_line    0x00003bdf      0x96c C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_clock_MKL26Z4.o)
+ .debug_line    0x0000454b      0x614 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_clock_manager.o)
+ .debug_line    0x00004b5f      0x14e C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_clock_manager_common.o)
+ .debug_line    0x00004cad      0x343 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_sim_hal_MKL26Z4.o)
+ .debug_line    0x00004ff0       0xf4 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_rtc_common.o)
+ .debug_line    0x000050e4       0xfe C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_osc_hal.o)
+ .debug_line    0x000051e2      0x3e7 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_mcg_hal.o)
+ .debug_line    0x000055c9      0x45f C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_mcg_hal_modes.o)
 
-.debug_str      0x00000000    0xb1891
+.debug_str      0x00000000    0xb188e
  .debug_str     0x00000000    0xabd79 ./Utilities/fsl_debug_console.o
                               0xac319 (size before relaxing)
  .debug_str     0x000abd79      0x8a3 ./Utilities/print_scan.o
                                0x67a8 (size before relaxing)
- .debug_str     0x000ac61c     0x15a5 ./Sources/main.o
-                              0xab3c7 (size before relaxing)
- .debug_str     0x000adbc1      0x12f ./Project_Settings/Startup_Code/startup.o
+ .debug_str     0x000ac61c     0x15a2 ./Sources/main.o
+                              0xab3c4 (size before relaxing)
+ .debug_str     0x000adbbe      0x12f ./Project_Settings/Startup_Code/startup.o
                               0xa9b44 (size before relaxing)
- .debug_str     0x000adcf0       0xb4 ./Project_Settings/Startup_Code/system_MKL26Z4.o
+ .debug_str     0x000adced       0xb4 ./Project_Settings/Startup_Code/system_MKL26Z4.o
                               0xa9ba8 (size before relaxing)
- .debug_str     0x000adda4       0x5f ./FRDM_KL26Z/adc.o
+ .debug_str     0x000adda1       0x5f ./FRDM_KL26Z/adc.o
                               0xa9ecd (size before relaxing)
- .debug_str     0x000ade03       0x5e ./FRDM_KL26Z/pit_kl26z.o
+ .debug_str     0x000ade00       0x5e ./FRDM_KL26Z/pit_kl26z.o
                               0xa9de8 (size before relaxing)
- .debug_str     0x000ade61      0x723 ./Board/board.o
+ .debug_str     0x000ade5e      0x723 ./Board/board.o
                               0xab408 (size before relaxing)
- .debug_str     0x000ae584       0x27 ./Board/hardware_init.o
+ .debug_str     0x000ae581       0x27 ./Board/hardware_init.o
                               0xaaaee (size before relaxing)
- .debug_str     0x000ae5ab      0x1a7 ./Board/pin_mux.o
+ .debug_str     0x000ae5a8      0x1a7 ./Board/pin_mux.o
                               0xa9d88 (size before relaxing)
- .debug_str     0x000ae752      0x618 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_uart_hal.o)
+ .debug_str     0x000ae74f      0x618 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_uart_hal.o)
                                 0x919 (size before relaxing)
- .debug_str     0x000aed6a      0x534 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_lpsci_hal.o)
+ .debug_str     0x000aed67      0x534 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_lpsci_hal.o)
                                 0xa1f (size before relaxing)
- .debug_str     0x000af29e     0x10c6 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_clock_MKL26Z4.o)
+ .debug_str     0x000af29b     0x10c6 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_clock_MKL26Z4.o)
                                0x1833 (size before relaxing)
- .debug_str     0x000b0364      0x9f7 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_clock_manager.o)
+ .debug_str     0x000b0361      0x9f7 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_clock_manager.o)
                                0x17aa (size before relaxing)
- .debug_str     0x000b0d5b       0x61 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_clock_manager_common.o)
+ .debug_str     0x000b0d58       0x61 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_clock_manager_common.o)
                                 0x34e (size before relaxing)
- .debug_str     0x000b0dbc      0x40f C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_sim_hal_MKL26Z4.o)
+ .debug_str     0x000b0db9      0x40f C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_sim_hal_MKL26Z4.o)
                                 0x786 (size before relaxing)
- .debug_str     0x000b11cb       0x5f C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_rtc_common.o)
+ .debug_str     0x000b11c8       0x5f C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_rtc_common.o)
                                 0x3fc (size before relaxing)
- .debug_str     0x000b122a       0x43 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_osc_hal.o)
+ .debug_str     0x000b1227       0x43 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_osc_hal.o)
                                 0x233 (size before relaxing)
- .debug_str     0x000b126d      0x4eb C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_mcg_hal.o)
+ .debug_str     0x000b126a      0x4eb C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_mcg_hal.o)
                                 0xb0e (size before relaxing)
- .debug_str     0x000b1758      0x139 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_mcg_hal_modes.o)
+ .debug_str     0x000b1755      0x139 C:/Freescale/KSDK_1.2.0/lib/ksdk_platform_lib/kds/KL26Z4/debug/libksdk_platform.a(fsl_mcg_hal_modes.o)
                                 0xa9b (size before relaxing)
 
 .comment        0x00000000       0x70

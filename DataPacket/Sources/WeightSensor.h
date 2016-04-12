@@ -11,7 +11,7 @@
 #define CLK_MASK 0x100				//ptc8
 #define DATA_MASK 0x200				//ptc9
 
-unsigned long int calibrate();
+unsigned long int calibrate(unsigned long int *zero);
 unsigned long int readValue();
 unsigned long int readAverageValue(unsigned long int av, unsigned long int zero_offset);
 char DATA_read();
@@ -23,13 +23,14 @@ char DATA_read();
  * Return average value which corresponds to the weight of the hardware i.e. the zero offset
  *
  **************************************************************************************/
-unsigned long int calibrate() {
-	unsigned long int average = 0;
+unsigned long int calibrate(unsigned long int *zero) {
 	int i;
+	unsigned long int x;
+	PRINTF("\r\n\nCalibrating Weight sensor\n\n");
+	x = *zero;
 	for (i = 0; i < 256; i++)
-		average += readValue();
-	average = average / 256;
-	return average;
+		x += readValue();
+	*zero = x / (unsigned long int)256;
 }
 
 
@@ -87,6 +88,7 @@ unsigned long int readAverageValue(unsigned long int av, unsigned long int zero_
 				PRINTF("\r\n\t\t%ld",value);
 			}
 			av = av / 256;
+			PRINTF("Average Value: %ld\r\n",av);
 			return av;
 }
 

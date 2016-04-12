@@ -51,7 +51,7 @@ int main(void)
 
 	masterPointer = dataPacket;
 	element0 = masterPointer;
-	zero_offset = calibrate(zero_offset);
+	calibrate(&zero_offset);
 	while(1){
 
 	}
@@ -139,7 +139,7 @@ char* createPacket(char* element0)
 	int i;
 	int x;
 	unsigned long int averageValue = 0;
-	int grams = 0;
+	unsigned long int grams = 0;
 	char checksum = 0x00;
 	*element0 = 0x55; //assign header value
 	element0 ++;
@@ -160,7 +160,9 @@ char* createPacket(char* element0)
 	element0++;
 	averageValue = readAverageValue(averageValue, zero_offset);
 	grams = averageValue/CONVERSIONFACTOR;
-	*element0 = grams;//s2
+	PRINTF("\r\nzero = %ld\r\n", zero_offset);
+	PRINTF("Weight: %ld\r\n",grams);
+	*element0 = (char)grams;//s2
 	element0++;
 	*element0 = 0x08;//s3
 	element0++;
