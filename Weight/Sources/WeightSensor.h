@@ -8,9 +8,13 @@
 #ifndef SOURCES_WEIGHTSENSOR_H_
 #define SOURCES_WEIGHTSENSOR_H_
 
+#define CLK_MASK 0x100				//ptc8
+#define DATA_MASK 0x200				//ptc9
+
 unsigned long int calibrate();
 unsigned long int readValue();
 unsigned long int readAverageValue(unsigned long int av, unsigned long int zero_offset);
+char DATA_read();
 
 /**************************************************************************************
  *
@@ -86,5 +90,50 @@ unsigned long int readAverageValue(unsigned long int av, unsigned long int zero_
 			return av;
 }
 
+char DATA_read()
+{
+	if (GPIOC_PDIR & DATA_MASK)
+		return 1;
+	return 0;
+}
+
+void FRDM_KL26Z_CLK_Configure()
+{
+	//enable port clock
+	SIM_SCGC5 |= PORTC_CLK_ENABLE_MASK;
+	PORTC_PCR8 |= GPIO_MUX_MASK;	//configure as GPIO pin
+	GPIOC_PDDR |= CLK_MASK; //PTC8 output direction
+	GPIOC_PSOR |= CLK_MASK; // PTC8 = 1;
+}
+
+void FRDM_KL26Z_DATA_Configure(int pull_resistor, int interrupt_option)
+{
+	//enable port clock
+	SIM_SCGC5 |= PORTC_CLK_ENABLE_MASK;
+	PORTC_PCR9 |= GPIO_MUX_MASK;	//configure as GPIO pin
+
+	//configure pullup/pulldown resistor
+	if(pull_resistor == PULLUP)
+		PORTC_PCR9 |= PULLUP_ENABLED_MASK;	//PE=1, PS=1
+	else if(pull_resistor == PULLDOWN)
+		PORTC_PCR9 |= PULLDOWN_ENABLED_MASK;	//PE=1,PS=0
+
+	//configure interrupt
+	switch(interrupt_option)
+	{
+	case LOW_LEVEL: PORTC_PCR9 |= LOW_LEVEL_INTERRUPT_MASK;
+	break;
+	case RISING_EDGE: PORTC_PCR9 |= RISING_EDGE_INTERRUPT_MASK;
+	break;
+	case FALLING_EDGE: PORTC_PCR9 |= FALLNG_EDGE_INTERRUPT_MASK;
+	break;
+	case EITHER_EDGE: PORTC_PCR9 |= EITHER_EDGE_INTERRUPT_MASK;
+	break;
+	case HIGH_LEVEL: PORTC_PCR9 |= HIGH_LEVEL_INTERRUPT_MASK;
+	break;
+	default:
+	break;
+	}
+}
 
 #endif /* SOURCES_WEIGHTSENSOR_H_ */
