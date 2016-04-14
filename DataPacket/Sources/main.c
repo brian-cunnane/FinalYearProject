@@ -11,11 +11,14 @@
 #include "pit_kl26z.h"
 #include "gpio.h"
 #include "WeightSensor.h"
+#include "HumiditySensor.h"
 
 #define RDRF_MASK 0x20	//Receive Data Register Full Flag Mask
 #define RIE_MASK 0x20	//Receive Interrupt Enable Mask
 #define UART_S1_TRDE_MASK 0X80
 #define CONVERSIONFACTOR 20
+#define HUMIDITYCHANNEL 14
+#define TEMPERATURECHANNEL 15
 
 void UART1_config();
 void put_char(char c);
@@ -23,7 +26,7 @@ void enable_UART1_receive_interrupt();
 char* createPacket(char * element0);
 char char_received();
 
-char channel = 15;
+
 char dataPacket[10] = {0};
 char* masterPointer;
 char* element0;
@@ -32,13 +35,13 @@ unsigned long int zero_offset = 0;
  * [0]Header
  * [1]Identifier
  * [2]Length
- * [3]Sensor1
- * [4]Sensor2
- * []
- * []
- * []
- * [5]Sensor3
- * [6]Checksum
+ * [3]Temperature
+ * [4]Weight
+ * 	[5]
+ * 	[6]
+ * 	[7]
+ * [8]Humidity
+ * [9]Checksum
  ****************************/
 
 int main(void)
@@ -58,11 +61,7 @@ int main(void)
 	element0 = masterPointer;
 
 	zero_offset = calibrate(ptr);
-	//zero_offset = *ptr;
-
-	while(1){
-
-	}
+	while(1){}
 
     return 0;
 }
@@ -82,7 +81,7 @@ void PIT_IRQHandler()
 	PIT_TFLG0 = 0x01ul;
 	ADC0_SC1A = 0x04Fu;
 	ADC0_SC1A &= 0xFFFFFFE0;
-	ADC0_SC1A |= channel;
+	ADC0_SC1A |= TEMPERATURECHANNEL;
 
 	createPacket(element0);
 
@@ -146,7 +145,7 @@ char* createPacket(char* element0)
 {
 	int i;
 	int x;
-	unsigned long int averageValue = 0;
+	unsigned long int averageWeightValue = 0;
 	unsigned long int grams = 0;
 	char checksum = 0x00;
 	*element0 = 0x55; //assign header value
@@ -159,15 +158,14 @@ char* createPacket(char* element0)
 	element0 ++;
 	//assign readings
 
-	int sample = read_adc0(channel);
+	int sample = read_adc0(TEMPERATURECHANNEL);
 	float vtemp = (float)sample/65536 * 3.3;
 	float temp = vtemp * 100;
-	*element0  = (char)temp;
-
-	//*element0 = 0x06; //s1
+	*element0  = (char)temp; //s1 Temperature
 	element0++;
-	averageValue = readAverageValue(averageValue, zero_offset);
-	grams = averageValue/CONVERSIONFACTOR;
+
+	averageWeightValue = readAverageValue(averageWeightValue, zero_offset);
+	grams = averageWeightValue/CONVERSIONFACTOR;
 	PRINTF("\r\nzero = %ld\r\n", zero_offset);
 	PRINTF("Weight: %ld\r\n",grams);
 	//unsigned long int needs to be split over 4 chars due to size
@@ -179,7 +177,7 @@ char* createPacket(char* element0)
 	element0++;
 	*element0 = grams & 0xFF;//s2
 	element0++;
-	*element0 = 0x08;//s3
+	*element0 = readHumidity(temp);//s3 Humidity
 	element0++;
 	for(i = 0; i < 7; i ++)
 	{
