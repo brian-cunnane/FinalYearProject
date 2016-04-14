@@ -24,7 +24,7 @@ char* createPacket(char * element0);
 char char_received();
 
 char channel = 15;
-char dataPacket[7] = {0};
+char dataPacket[10] = {0};
 char* masterPointer;
 char* element0;
 unsigned long int zero_offset = 0;
@@ -34,6 +34,9 @@ unsigned long int zero_offset = 0;
  * [2]Length
  * [3]Sensor1
  * [4]Sensor2
+ * []
+ * []
+ * []
  * [5]Sensor3
  * [6]Checksum
  ****************************/
@@ -41,6 +44,8 @@ unsigned long int zero_offset = 0;
 int main(void)
 {
 	int i = 0;
+	unsigned long int *ptr;
+	ptr = &zero_offset;
 	hardware_init();
 	UART1_config();
 	enable_UART1_receive_interrupt();
@@ -51,7 +56,10 @@ int main(void)
 
 	masterPointer = dataPacket;
 	element0 = masterPointer;
-	calibrate(&zero_offset);
+
+	zero_offset = calibrate(ptr);
+	//zero_offset = *ptr;
+
 	while(1){
 
 	}
@@ -80,7 +88,7 @@ void PIT_IRQHandler()
 
 
 	int i;
-	for(i = 0; i < 7; i ++)
+	for(i = 0; i < 10; i ++)
 	{
 		put_char(dataPacket[i]);
 	}
@@ -147,7 +155,7 @@ char* createPacket(char* element0)
 	*element0 = 0x01;
 	element0 ++;
 	//assign length
-	*element0 = 0x04;
+	*element0 = 0x0A;
 	element0 ++;
 	//assign readings
 
@@ -162,16 +170,23 @@ char* createPacket(char* element0)
 	grams = averageValue/CONVERSIONFACTOR;
 	PRINTF("\r\nzero = %ld\r\n", zero_offset);
 	PRINTF("Weight: %ld\r\n",grams);
-	*element0 = (char)grams;//s2
+	//unsigned long int needs to be split over 4 chars due to size
+	*element0 = (grams >>24) & 0xFF;//s2
+	element0++;
+	*element0 = (grams >>16) & 0xFF;//s2
+	element0++;
+	*element0 = (grams >> 8) & 0xFF;//s2
+	element0++;
+	*element0 = grams & 0xFF;//s2
 	element0++;
 	*element0 = 0x08;//s3
 	element0++;
-	for(i = 0; i < 4; i ++)
+	for(i = 0; i < 7; i ++)
 	{
 		checksum = checksum ^ (*(dataPacket + i + 2));//should be 0x0d for this test
 	}
 	*element0 = checksum;
 	element0 = masterPointer; //return to start of array
-
+	PRINTF("\r\n%d",checksum);
 
 }

@@ -28,9 +28,10 @@ unsigned long int calibrate(unsigned long int *zero) {
 	unsigned long int x;
 	PRINTF("\r\n\nCalibrating Weight sensor\n\n");
 	x = *zero;
-	for (i = 0; i < 256; i++)
+	for (i = 0; i < 50; i++)
 		x += readValue();
-	*zero = x / (unsigned long int)256;
+	*zero = x / (unsigned long int)50;
+	return *zero;
 }
 
 
@@ -82,12 +83,12 @@ unsigned long int readValue() {
 unsigned long int readAverageValue(unsigned long int av, unsigned long int zero_offset){
 	int i;
 	unsigned long int value;
-	for (i = 0; i < 256; i++){
+	for (i = 0; i < 10; i++){
 				value = readValue();
 				av = av + value - zero_offset;
 				PRINTF("\r\n\t\t%ld",value);
 			}
-			av = av / 256;
+			av = av / 10;
 			PRINTF("Average Value: %ld\r\n",av);
 			return av;
 }
