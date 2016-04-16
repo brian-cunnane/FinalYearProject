@@ -7,6 +7,7 @@ import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 import org.apache.http.client.ClientProtocolException;
 import org.json.JSONException;
@@ -21,6 +22,7 @@ import java.util.HashMap;
 public class main extends Activity {
 
     private Button connectButton;
+    private TextView textView1;
     private JSONObject jsonResult;
     private String jsonString;
 
@@ -31,6 +33,7 @@ public class main extends Activity {
         setContentView(R.layout.main);
         inputMap = new HashMap<String, String>();
         connectButton = (Button)findViewById(R.id.button);
+        textView1 = (TextView)findViewById(R.id.textView1);
 
         connectButton.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -39,20 +42,26 @@ public class main extends Activity {
                 NetworkInfo networkInfo = connManager.getActiveNetworkInfo();
                 if(networkInfo != null && networkInfo.isConnected()){
                     Toast.makeText(getApplicationContext(),"Connected",Toast.LENGTH_LONG).show();
-                    String URL = "http://10.12.16.116:8080/beekeeper/test";
+                    String URL = "http://192.168.0.22:8080/beekeeper/test";
 
                     JSONObject jsonInput = new JSONObject(inputMap);
                     new Thread(new Runnable(){
                         @Override
                         public void run(){
                             try{
-                                String jsonString = HttpUtils.urlContentPost(URL,"Query",jsonInput.toString());
+                                String query = "Select * from HIVE1";
+                                String jsonString = HttpUtils.urlContentPost(URL,query,jsonInput.toString());
                                 jsonResult = new JSONObject(jsonString);
-                            }catch(ClientProtocolException CPE){Toast.makeText(getApplicationContext(),"ClientProtocolException",Toast.LENGTH_LONG).show();}
+                            }catch(ClientProtocolException CPE){CPE.printStackTrace();}
                             catch(IOException IOE){Toast.makeText(getApplicationContext(),"IO Exception",Toast.LENGTH_LONG).show();}
                             catch(JSONException JSE){Toast.makeText(getApplicationContext(),"JSON Exception",Toast.LENGTH_LONG).show();}
                         }
                     }).start();
+                    try{
+                        textView1.setText(URL + "\n" + jsonInput.toString() + "\n");
+                        textView1.setText(textView1.getText()+jsonResult.toString());
+                    }catch(Exception EE){EE.printStackTrace();}
+
                 }
                 else
                     Toast.makeText(getApplicationContext(),"Not Connected",Toast.LENGTH_LONG).show();
