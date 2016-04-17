@@ -49,8 +49,8 @@ public class main extends Activity {
                         @Override
                         public void run(){
                             try{
-                                String query = "Select * from HIVE1";
-                                String jsonString = HttpUtils.urlContentPost(URL,query,jsonInput.toString());
+                                /*String query = "Select * from HIVE1";*/
+                                String jsonString = HttpUtils.urlContentPost(URL,"all",jsonInput.toString());
                                 jsonResult = new JSONObject(jsonString);
                             }catch(ClientProtocolException CPE){CPE.printStackTrace();}
                             catch(IOException IOE){Toast.makeText(getApplicationContext(),"IO Exception",Toast.LENGTH_LONG).show();}
@@ -59,7 +59,8 @@ public class main extends Activity {
                     }).start();
                     try{
                         textView1.setText(URL + "\n" + jsonInput.toString() + "\n");
-                        textView1.setText(textView1.getText()+jsonResult.toString());
+                        //TODO jsonResult is returning empty
+                        textView1.setText(textView1.getText()+jsonResult.getString("all"));
                     }catch(Exception EE){EE.printStackTrace();}
 
                 }
