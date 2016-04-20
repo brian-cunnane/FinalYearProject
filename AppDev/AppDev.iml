@@ -18,5 +18,8 @@
     </content>
     <orderEntry type="jdk" jdkName="Android API 22 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="GraphView-4.0.1" level="project" />
+    <orderEntry type="library" name="GraphView-4.0.1 (2)" level="application" />
+    <orderEntry type="library" name="mpandroidchartlibrary-2-2-4" level="project" />
   </component>
 </module>
