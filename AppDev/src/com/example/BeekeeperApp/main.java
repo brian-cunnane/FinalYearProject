@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.github.mikephil.charting.charts.LineChart;
@@ -28,14 +29,19 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+
 /**
  * Created by brian on 15/03/2016.
  */
 public class main extends Activity implements OnChartValueSelectedListener {
 
     private Button connectButton;
+    private Button clearButton;
     private TextView textView1;
     private LineChart graph;
+    private CheckBox temperatureBox;
+    private CheckBox weightBox;
+    private CheckBox humidityBox;
 
     private final int[] tempColour = {
             Color.rgb(255, 0, 0)
@@ -53,19 +59,23 @@ public class main extends Activity implements OnChartValueSelectedListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         inputMap = new HashMap<String, String>();
+
         connectButton = (Button)findViewById(R.id.button);
+        clearButton = (Button)findViewById(R.id.Clear);
+        temperatureBox = (CheckBox)findViewById(R.id.TemperatureBox);
+        weightBox = (CheckBox)findViewById(R.id.WeightBox);
+        humidityBox = (CheckBox)findViewById(R.id.HumidityBox);
         textView1 = (TextView)findViewById(R.id.textView1);
 
         graph = (LineChart)findViewById(R.id.graph);
         graph.setOnChartValueSelectedListener(this);
-        //graph.setBackgroundColor(255);
         graph.setDrawGridBackground(true);
         graph.setDescription("Test");
         graph.setData(new LineData());
 
         CustomMarkerView marker = new CustomMarkerView(this, R.layout.marker);
         graph.setMarkerView(marker);
-        graph.invalidate();
+        graph.invalidate(); //refresh graph
 
         connectButton.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -77,10 +87,16 @@ public class main extends Activity implements OnChartValueSelectedListener {
 
                     //college id http://10.12.11.185:8080/android;
                     //home id http://192.168.0.12:8080/android;
-                    new HttpAsyncTask().execute("http://192.168.0.22:8080/beekeeper/android?test=test");
+                    new HttpAsyncTask().execute("http://10.12.11.185:8080/android?test=test");
                 }
                 else
                     Toast.makeText(getApplicationContext(),"Not Connected",Toast.LENGTH_LONG).show();
+            }
+        });
+        clearButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                removeDataSets();
             }
         });
     }
@@ -118,6 +134,7 @@ public class main extends Activity implements OnChartValueSelectedListener {
 
             JSONArray jsonArray;
             JSONObject jsonObject = new JSONObject();
+            int dataSetCount = 0;
             try {
                 jsonArray = new JSONArray(result);
                 for(int i = 0; i < jsonArray.length(); i ++){
@@ -128,22 +145,31 @@ public class main extends Activity implements OnChartValueSelectedListener {
                     weights.add(jsonObject.getInt("weight"));
                     times.add(jsonObject.getString("time"));
                 }
-               // for(int i = 0; i < dates.size();i ++)
-                //textView1.setText(textView1.getText() + dates.get(i).toString() + " ");
-                Log.d("values",temps.toString());
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            Log.d("values",temps.toString());
 
                /* XAxis xAxis = graph.getXAxis();
                 xAxis.setTextSize(10f);
                 for(int i = 0; i < times.size(); i ++)
                     xAxis.setValues(times.get(i).toString());
               */
-                addDataSet(temps,"Temperature", tempColour);
-                addDataSet(hums, "Humidity", humidityColour);
-                addDataSet(weights,"Weight", weightColour);
-
-            } catch (JSONException e) {
-                e.printStackTrace();
+            if(temperatureBox.isChecked()) {
+                addDataSet(temps, "Temperature", tempColour);
+                dataSetCount++;
             }
+
+            if(humidityBox.isChecked()) {
+                addDataSet(hums, "Humidity", humidityColour);
+                dataSetCount++;
+            }
+
+            if(weightBox.isChecked()) {
+                addDataSet(weights, "Weight", weightColour);
+                dataSetCount++;
+            }
+
         }
     }
 
@@ -154,16 +180,16 @@ public class main extends Activity implements OnChartValueSelectedListener {
             ArrayList<Entry> y = new ArrayList<Entry>(); // array list for y values
             if(values.getXValCount() == 0){
                 for(int i = 0; i < 10; i ++)
-                    values.addXValue("" + (i+1));
+                    values.addXValue("" + (i+1)); // add divisions to x axis
             }
             try {
+
                 for (int i = 0; i < data.size(); i++) {
                     y.add(new Entry(Integer.parseInt(data.get(i).toString()), i));
                     Log.d("y",y.toString());
                 }
             }catch(NumberFormatException NFE){NFE.printStackTrace();}
             LineDataSet set = new LineDataSet(y,name);
-
             set.setColors(colour);
             set.setLineWidth(2.0f);
             set.setCircleRadius(4.0f);
@@ -174,8 +200,16 @@ public class main extends Activity implements OnChartValueSelectedListener {
             graph.notifyDataSetChanged();
             graph.invalidate();
         }
+    }
 
-
+    private void removeDataSets(){
+        LineData values = graph.getData();
+        if(values != null){
+            //values.removeDataSet(values.getDataSetByIndex(values.getDataSetCount()-1));
+            values.clearValues();
+        }
+        graph.notifyDataSetChanged();
+        graph.invalidate();
     }
     public class CustomMarkerView extends MarkerView{
         private TextView textViewMarker;

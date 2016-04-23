@@ -1,15 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:weightSum="1">
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Check Connection"
-        android:id="@+id/button" />
 
     <TextView
         android:layout_width="match_parent"
@@ -22,5 +16,51 @@
         android:layout_height="260dp"
         android:id="@+id/graph" />
 
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Temperature"
+        android:id="@+id/TemperatureBox"
+        android:checked="true"
+        android:layout_alignTop="@+id/WeightBox"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="66dp" />
 
-</LinearLayout>
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Weight"
+        android:id="@+id/WeightBox"
+        android:checked="true"
+        android:layout_alignTop="@+id/HumidityBox"
+        android:layout_toEndOf="@+id/button" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Humidity"
+        android:id="@+id/HumidityBox"
+        android:checked="true"
+        android:layout_below="@+id/graph"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="71dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Graph Data"
+        android:id="@+id/button"
+        android:layout_marginTop="46dp"
+        android:layout_below="@+id/WeightBox"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Clear Data"
+        android:id="@+id/Clear"
+        android:layout_alignTop="@+id/button"
+        android:layout_toEndOf="@+id/WeightBox" />
+
+
+</RelativeLayout>
