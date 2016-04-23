@@ -160,7 +160,7 @@ char* createPacket(char* element0)
 
 	int sample = read_adc0(TEMPERATURECHANNEL);
 	float vtemp = (float)sample/65536 * 3.3;
-	float temp = vtemp * 100;
+	float temp = (vtemp) * 100;
 	*element0  = (char)temp; //s1 Temperature
 	element0++;
 

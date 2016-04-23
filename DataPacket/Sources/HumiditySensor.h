@@ -20,8 +20,8 @@ char readHumidity(float temp)
 	float average = 0;
 	for(int i = 0; i < 256; i ++){
 		unsigned int sample = read_adc0(HUMIDITYCHANNEL);
-		float relativeHumidity = (float) sample - 15887.27273;//32981.97818;
-		relativeHumidity = relativeHumidity * 0.00162;
+		float relativeHumidity = (float) sample - 15887.27273;//sample minus 0 offset
+		relativeHumidity = relativeHumidity * 0.00162; //value times conversion gain
 		average += relativeHumidity;
 	}
 
