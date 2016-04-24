@@ -12,6 +12,7 @@
 #include "gpio.h"
 #include "WeightSensor.h"
 #include "HumiditySensor.h"
+#include "Accelerometer.h"
 
 #define RDRF_MASK 0x20	//Receive Data Register Full Flag Mask
 #define RIE_MASK 0x20	//Receive Interrupt Enable Mask
@@ -27,7 +28,7 @@ char* createPacket(char * element0);
 char char_received();
 
 
-char dataPacket[10] = {0};
+char dataPacket[11] = {0};
 char* masterPointer;
 char* element0;
 unsigned long int zero_offset = 0;
@@ -54,6 +55,7 @@ int main(void)
 	enable_UART1_receive_interrupt();
 	adc0_config(SW_TRIGGER,BIT16,ADC_INTERRUPT_DISABLED);
 	PIT_Configure_interrupt_mode(20); // 2 second interrupt
+	configureAccelerometer();
 	FRDM_KL26Z_CLK_Configure(); //configure PTC8 as output for clocking hx711
 	FRDM_KL26Z_DATA_Configure(0, 0); //configure PTC9 as input for HX711
 
@@ -179,7 +181,9 @@ char* createPacket(char* element0)
 	element0++;
 	*element0 = readHumidity(temp);//s3 Humidity
 	element0++;
-	for(i = 0; i < 7; i ++)
+	*element0 = readAccelerometer();
+	element0++;
+	for(i = 0; i < 8; i ++)
 	{
 		checksum = checksum ^ (*(dataPacket + i + 2));//should be 0x0d for this test
 	}
