@@ -1,7 +1,8 @@
 
 /***********************************************************************************************
- * program to generate interrupt when switch is pushed
- *
+ * Author: Brian Cunnane
+ * Date:24/Apr/2016
+ * Description: Code to read Accelerometer axes and output to serial window *
  **********************************************************************************************/
 #include "fsl_device_registers.h"
 #include "board.h"
