@@ -7,53 +7,55 @@
 #include "board.h"
 #include "fsl_debug_console.h"
 #include "gpio.h"
+#include "FXOS8700.h"
+#include "i2c.h"
+#include "pit_kl26z.h"
 
 int count = 0;
 char ch;
+char temp;
+int x = 0;
+int y = 0;
+int z = 0;
+char data[6] = {0x00};
 
 int main(void)
 {
 
     //Initialise the FRDM-KL26Z Board
 	hardware_init();
-	FRDM_KL26Z_LEDs_Configure();
-	// configure sw1 for falling edge interrupt
-	NVIC_ClearPendingIRQ(31);
-	NVIC_EnableIRQ(31);
-	FRDM_KL26Z_SW1_Configure(PULLUP,FALLING_EDGE);
+	i2c0_configure();
+	PIT_Configure_interrupt_mode(1);
+	write_FXOS8700(CTRL_REG1_reg, 0x00);//put accelerometer into standby mode
+	write_FXOS8700(XYZ_DATA_CFG_reg, 0x01);//set tolerance to +- 4g
+	write_FXOS8700(CTRL_REG1_reg, 0x0D);//put accelerometer into active mode
 
-
+	ch = read_FXOS8700(WHO_AM_I_reg);//read to check setup correctly
+	PRINTF("\r\nWHO_AM_I: %x\r\n",ch);
+	temp = read_FXOS8700(TEMPERATURE_reg);
+	PRINTF("TEMPERATURE: %x\r\n",temp);// read to check setup correctly
     while(1) {
+
 
     }
     /* Never leave main */
     return 0;
 }
 
-void PORTC_PORTD_IRQHandler()
-{
-	PORTC_ISFR |= SW1_MASK; // clear interrupt flag
-	if(count >=4)
-		count = 0;
-	switch (count)
-	{
-		case 0:
-			LED_set(ALL,OFF);
-			break;
-		case 1:
-			LED_set(BLUE,ON);
-			break;
-		case 2:
-			LED_set(ALL,OFF);
-			LED_set(RED,ON);
-			break;
-		case 3:
-			LED_set(ALL,OFF);
-			LED_set(GREEN,ON);
-			break;
-	}
-	count ++;
+void PIT_IRQHandler(){
+	PIT_TFLG0=0x01ul;//clear interrupt flag
+
+	for(int i = 0; i < 6; i ++)
+		data[i] = read_FXOS8700(OUT_X_MSB_reg + i); //read all axes
+	x = (data[0]<<6)+(data[1]>>2);//<<6 for msb
+	y = (data[2]<<6)+(data[3]>>2);
+	z = (data[4]<<6)+(data[5]>>2);
+
+	PRINTF("X = %4d\r\n",x);
+	PRINTF("Y = %4d\r\n",y);
+	PRINTF("Z = %4d\r\n",z);
 }
+
 ////////////////////////////////////////////////////////////////////////////////
 // EOF
 ////////////////////////////////////////////////////////////////////////////////
