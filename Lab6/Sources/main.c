@@ -46,7 +46,7 @@ void PIT_IRQHandler(){
 	PIT_TFLG0=0x01ul;//clear interrupt flag
 
 	for(int i = 0; i < 6; i ++)
-		data[i] = read_FXOS8700(OUT_X_MSB_reg + i); //read all axes
+		data[i] = read_FXOS8700(OUT_X_MSB_reg + i); //read all axes 8 bit so no need for lsb reg
 	x = (data[0]<<6)+(data[1]>>2);//<<6 for msb
 	y = (data[2]<<6)+(data[3]>>2);
 	z = (data[4]<<6)+(data[5]>>2);
