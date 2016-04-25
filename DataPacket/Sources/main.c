@@ -10,6 +10,7 @@
 #include "adc.h"
 #include "pit_kl26z.h"
 #include "gpio.h"
+#include "TemperatureSensor.h"
 #include "WeightSensor.h"
 #include "HumiditySensor.h"
 #include "Accelerometer.h"
@@ -18,8 +19,7 @@
 #define RIE_MASK 0x20	//Receive Interrupt Enable Mask
 #define UART_S1_TRDE_MASK 0X80
 #define CONVERSIONFACTOR 20
-#define HUMIDITYCHANNEL 14
-#define TEMPERATURECHANNEL 15
+
 
 void UART1_config();
 void put_char(char c);
@@ -42,7 +42,8 @@ unsigned long int zero_offset = 0;
  * 	[6]
  * 	[7]
  * [8]Humidity
- * [9]Checksum
+ * [9]Accelerometer
+ * [10]Checksum
  ****************************/
 
 int main(void)
@@ -61,8 +62,9 @@ int main(void)
 
 	masterPointer = dataPacket;
 	element0 = masterPointer;
-
+	PRINTF("\r\nSTARTING\r\n");
 	zero_offset = calibrate(ptr);
+	PRINTF("\r\nCALIBRATION COMPLETE!\r\n");
 	while(1){}
 
     return 0;
@@ -83,13 +85,13 @@ void PIT_IRQHandler()
 	PIT_TFLG0 = 0x01ul;
 	ADC0_SC1A = 0x04Fu;
 	ADC0_SC1A &= 0xFFFFFFE0;
-	ADC0_SC1A |= TEMPERATURECHANNEL;
+	//ADC0_SC1A |= TEMPERATURECHANNEL;
 
 	createPacket(element0);
 
 
 	int i;
-	for(i = 0; i < 10; i ++)
+	for(i = 0; i < 11; i ++)
 	{
 		put_char(dataPacket[i]);
 	}
@@ -121,11 +123,7 @@ void UART1_config()
 
 void UART1_IRQHandler() // for chars received
 {
-	//if (UART1_S1 & RDRF_MASK)
-	//{
-		//put_char(UART1_D); // echo character
 
-	//}
 }
 
 void put_char(char c)
@@ -149,20 +147,19 @@ char* createPacket(char* element0)
 	int x;
 	unsigned long int averageWeightValue = 0;
 	unsigned long int grams = 0;
+	float temp = 0;
 	char checksum = 0x00;
+
 	*element0 = 0x55; //assign header value
 	element0 ++;
 	//assign identifier
 	*element0 = 0x01;
 	element0 ++;
 	//assign length
-	*element0 = 0x0A;
+	*element0 = 0x0B;
 	element0 ++;
 	//assign readings
-
-	int sample = read_adc0(TEMPERATURECHANNEL);
-	float vtemp = (float)sample/65536 * 3.3;
-	float temp = (vtemp) * 100;
+	temp = readTemperature();
 	*element0  = (char)temp; //s1 Temperature
 	element0++;
 
@@ -179,9 +176,11 @@ char* createPacket(char* element0)
 	element0++;
 	*element0 = grams & 0xFF;//s2
 	element0++;
+
 	*element0 = readHumidity(temp);//s3 Humidity
 	element0++;
-	*element0 = readAccelerometer();
+
+	*element0 =  readAccelerometer();
 	element0++;
 	for(i = 0; i < 8; i ++)
 	{
@@ -189,6 +188,8 @@ char* createPacket(char* element0)
 	}
 	*element0 = checksum;
 	element0 = masterPointer; //return to start of array
-	PRINTF("\r\n%d",checksum);
+	for(i = 0; i < 11; i ++)
+		PRINTF("%d ",dataPacket[i]);
+	PRINTF("\r\n%x",checksum);
 
 }

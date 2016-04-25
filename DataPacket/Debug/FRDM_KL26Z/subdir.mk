@@ -4,18 +4,24 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
+../FRDM_KL26Z/FXOS8700.c \
 ../FRDM_KL26Z/adc.c \
 ../FRDM_KL26Z/gpio.c \
+../FRDM_KL26Z/i2c.c \
 ../FRDM_KL26Z/pit_kl26z.c 
 
 OBJS += \
+./FRDM_KL26Z/FXOS8700.o \
 ./FRDM_KL26Z/adc.o \
 ./FRDM_KL26Z/gpio.o \
+./FRDM_KL26Z/i2c.o \
 ./FRDM_KL26Z/pit_kl26z.o 
 
 C_DEPS += \
+./FRDM_KL26Z/FXOS8700.d \
 ./FRDM_KL26Z/adc.d \
 ./FRDM_KL26Z/gpio.d \
+./FRDM_KL26Z/i2c.d \
 ./FRDM_KL26Z/pit_kl26z.d 
 
 

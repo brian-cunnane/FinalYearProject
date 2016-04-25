@@ -21,7 +21,11 @@ Sources/main.o: ../Sources/main.c \
  C:\Users\brian\Documents\year5\project\code\DataPacket\FRDM_KL26Z/adc.h \
  C:\Users\brian\Documents\year5\project\code\DataPacket\FRDM_KL26Z/pit_kl26z.h \
  C:\Users\brian\Documents\year5\project\code\DataPacket\FRDM_KL26Z/gpio.h \
- ../Sources/WeightSensor.h ../Sources/HumiditySensor.h
+ ../Sources/TemperatureSensor.h ../Sources/WeightSensor.h \
+ ../Sources/HumiditySensor.h ../Sources/Accelerometer.h \
+ C:\Users\brian\Documents\year5\project\code\DataPacket\FRDM_KL26Z/FXOS8700.h \
+ C:\Users\brian\Documents\year5\project\code\DataPacket\FRDM_KL26Z/i2c.h \
+ C:\Users\brian\Documents\year5\project\code\DataPacket\FRDM_KL26Z/i2c.h
 
 ../SDK/platform/devices/fsl_device_registers.h:
 
@@ -67,6 +71,16 @@ C:\Users\brian\Documents\year5\project\code\DataPacket\FRDM_KL26Z/pit_kl26z.h:
 
 C:\Users\brian\Documents\year5\project\code\DataPacket\FRDM_KL26Z/gpio.h:
 
+../Sources/TemperatureSensor.h:
+
 ../Sources/WeightSensor.h:
 
 ../Sources/HumiditySensor.h:
+
+../Sources/Accelerometer.h:
+
+C:\Users\brian\Documents\year5\project\code\DataPacket\FRDM_KL26Z/FXOS8700.h:
+
+C:\Users\brian\Documents\year5\project\code\DataPacket\FRDM_KL26Z/i2c.h:
+
+C:\Users\brian\Documents\year5\project\code\DataPacket\FRDM_KL26Z/i2c.h:
