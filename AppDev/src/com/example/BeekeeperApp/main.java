@@ -9,13 +9,9 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.widget.*;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.MarkerView;
-import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
@@ -42,6 +38,10 @@ public class main extends Activity implements OnChartValueSelectedListener {
     private CheckBox temperatureBox;
     private CheckBox weightBox;
     private CheckBox humidityBox;
+    private Spinner spinner;
+    private ArrayList times = new ArrayList();
+    private ArrayList dates = new ArrayList();
+    private String hive;
 
     private final int[] tempColour = {
             Color.rgb(255, 0, 0)
@@ -66,18 +66,22 @@ public class main extends Activity implements OnChartValueSelectedListener {
         weightBox = (CheckBox)findViewById(R.id.WeightBox);
         humidityBox = (CheckBox)findViewById(R.id.HumidityBox);
         textView1 = (TextView)findViewById(R.id.textView1);
+        spinner = (Spinner)findViewById(R.id.spinner);
+        spinner.setOnItemSelectedListener(new CustomOnItemSelectedListener());
+
 
         graph = (LineChart)findViewById(R.id.graph);
         graph.setOnChartValueSelectedListener(this);
         graph.setDrawGridBackground(true);
-        graph.setDescription("Test");
+        graph.setDescription("Beekeeper App Demo");
         graph.setData(new LineData());
+
 
         CustomMarkerView marker = new CustomMarkerView(this, R.layout.marker);
         graph.setMarkerView(marker);
         graph.invalidate(); //refresh graph
 
-        connectButton.setOnClickListener(new View.OnClickListener(){
+            connectButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
                 ConnectivityManager connManager = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -85,9 +89,12 @@ public class main extends Activity implements OnChartValueSelectedListener {
                 if(networkInfo != null && networkInfo.isConnected()){
                     Toast.makeText(getApplicationContext(),"Connected",Toast.LENGTH_LONG).show();
 
-                    //college id http://10.12.11.185:8080/android;
-                    //home id http://192.168.0.12:8080/android;
-                    new HttpAsyncTask().execute("http://10.12.11.185:8080/android?test=test");
+                    //college ip http://10.12.11.185:8080/beekeeper/android;
+                    //home ip http://192.168.0.12:8080/android;
+                    if(hive.compareTo("Hive1")==0)
+                        new HttpAsyncTask().execute("http://192.168.0.13:8080/android?Hive1");
+                    else if(hive.compareTo("Hive2")==0)
+                        new HttpAsyncTask().execute("http://192.168.0.13:8080/android?Hive2");
                 }
                 else
                     Toast.makeText(getApplicationContext(),"Not Connected",Toast.LENGTH_LONG).show();
@@ -110,14 +117,25 @@ public class main extends Activity implements OnChartValueSelectedListener {
     public void onNothingSelected() {
 
     }
+    public class CustomOnItemSelectedListener implements AdapterView.OnItemSelectedListener{
 
+        @Override
+        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+            hive = parent.getItemAtPosition(position).toString();
+        }
+
+        @Override
+        public void onNothingSelected(AdapterView<?> parent) {
+
+        }
+    }
     private class HttpAsyncTask extends AsyncTask<String, Void, String>{
 
         @Override
         protected String doInBackground(String... params) {
             String jsonString = "";
             try {
-                jsonString = HttpUtils.urlContentPost(params[0],"test");
+                jsonString = HttpUtils.urlContentPost(params[0]);
                 Log.d("url",jsonString.toString());
             } catch (IOException e) {
                 e.printStackTrace();
@@ -126,15 +144,13 @@ public class main extends Activity implements OnChartValueSelectedListener {
         }
 
         protected void onPostExecute(String result){
-            ArrayList temps = new ArrayList();
-            ArrayList hums = new ArrayList();
-            ArrayList weights = new ArrayList();
-            ArrayList times = new ArrayList();
-            ArrayList dates = new ArrayList();
+            ArrayList <Integer>temps = new ArrayList<Integer>();
+            ArrayList <Integer>hums = new ArrayList<Integer>();
+            ArrayList <Double>weights = new ArrayList<Double>();
 
             JSONArray jsonArray;
             JSONObject jsonObject = new JSONObject();
-            int dataSetCount = 0;
+
             try {
                 jsonArray = new JSONArray(result);
                 for(int i = 0; i < jsonArray.length(); i ++){
@@ -142,51 +158,50 @@ public class main extends Activity implements OnChartValueSelectedListener {
                     dates.add(jsonObject.getString("date"));
                     temps.add(jsonObject.getInt("temperature"));
                     hums.add(jsonObject.getInt("humidity"));
-                    weights.add(jsonObject.getInt("weight"));
+                    weights.add(jsonObject.getDouble("weight"));
                     times.add(jsonObject.getString("time"));
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
             }
             Log.d("values",temps.toString());
-
-               /* XAxis xAxis = graph.getXAxis();
-                xAxis.setTextSize(10f);
-                for(int i = 0; i < times.size(); i ++)
-                    xAxis.setValues(times.get(i).toString());
-              */
             if(temperatureBox.isChecked()) {
-                addDataSet(temps, "Temperature", tempColour);
-                dataSetCount++;
+                addDataSet(temps, "Temperature " + hive,dates, tempColour);
             }
 
             if(humidityBox.isChecked()) {
-                addDataSet(hums, "Humidity", humidityColour);
-                dataSetCount++;
+                addDataSet(hums, "Humidity " + hive,dates, humidityColour);
             }
 
             if(weightBox.isChecked()) {
-                addDataSet(weights, "Weight", weightColour);
-                dataSetCount++;
+                addDataSet(weights, "Weight " + hive,dates, weightColour);
             }
 
         }
     }
 
-    private void addDataSet(ArrayList data, String name, int[] colour) {
+    private void addDataSet(ArrayList data, String name, ArrayList dates, int[] colour) {
         LineData values = graph.getData();
+
         Log.d("values",data.toString());
         if(values != null){
             ArrayList<Entry> y = new ArrayList<Entry>(); // array list for y values
             if(values.getXValCount() == 0){
-                for(int i = 0; i < 10; i ++)
-                    values.addXValue("" + (i+1)); // add divisions to x axis
+                for(int i = 0; i< data.size(); i ++)
+                    values.addXValue("" + dates.get(i).toString()); // add divisions to x axis
             }
             try {
-
-                for (int i = 0; i < data.size(); i++) {
-                    y.add(new Entry(Integer.parseInt(data.get(i).toString()), i));
-                    Log.d("y",y.toString());
+                if(data.get(0).toString().contains(".")){
+                    for (int i = 0; i < data.size(); i++) {
+                        y.add(new Entry((float) Double.parseDouble(data.get(i).toString()), i));
+                        Log.d("y", y.toString());
+                    }
+                }
+                else {
+                    for (int i = 0; i < data.size(); i++) {
+                        y.add(new Entry(Integer.parseInt(data.get(i).toString()), i));
+                        Log.d("y", y.toString());
+                    }
                 }
             }catch(NumberFormatException NFE){NFE.printStackTrace();}
             LineDataSet set = new LineDataSet(y,name);
@@ -195,13 +210,22 @@ public class main extends Activity implements OnChartValueSelectedListener {
             set.setCircleRadius(4.0f);
             set.setCircleColors(colour);
             set.setValueTextSize(10f);
-
+            set.setDrawValues(false);
             values.addDataSet(set);
+
+            graph.fitScreen();
             graph.notifyDataSetChanged();
+            graph.animateX(1500);
             graph.invalidate();
         }
     }
+    public String getTime(int index){
+        return times.get(index).toString();
+    }
 
+    public String getDate(int index){
+        return dates.get(index).toString();
+    }
     private void removeDataSets(){
         LineData values = graph.getData();
         if(values != null){
@@ -219,7 +243,8 @@ public class main extends Activity implements OnChartValueSelectedListener {
         }
         @Override
         public void refreshContent(Entry e, Highlight highlight) {
-            textViewMarker.setText("" + e.getVal());
+            int index = e.getXIndex();
+            textViewMarker.setText("" + e.getVal()+"\n\n" + ""+ getTime(index)+ "\n\n" + "" +getDate(index));
         }
 
         @Override

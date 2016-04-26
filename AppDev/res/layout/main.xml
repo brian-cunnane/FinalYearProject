@@ -14,7 +14,9 @@
     <com.github.mikephil.charting.charts.LineChart
         android:layout_width="match_parent"
         android:layout_height="260dp"
-        android:id="@+id/graph" />
+        android:id="@+id/graph"
+        android:layout_below="@+id/spinner"
+        android:layout_alignParentStart="true" />
 
     <CheckBox
         android:layout_width="wrap_content"
@@ -61,6 +63,15 @@
         android:id="@+id/Clear"
         android:layout_alignTop="@+id/button"
         android:layout_toEndOf="@+id/WeightBox" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinner"
+        android:prompt="@string/hive_prompt"
+        android:entries="@array/hiveArray"
+        android:layout_below="@+id/textView1"
+        android:layout_alignParentStart="true" />
 
 
 </RelativeLayout>

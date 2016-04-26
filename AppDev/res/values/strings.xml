@@ -2,4 +2,10 @@
 <resources>
     <string name="hello">Hello World, Lop!</string>
     <string name="app_name">BeekeeperApp</string>
+    <string name="hive_prompt">Select a hive</string>
+    <string-array name="hiveArray">
+        <item>Hive1</item>
+        <item>Hive2</item>
+    </string-array>
+
 </resources>
