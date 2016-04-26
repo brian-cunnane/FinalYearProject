@@ -32,7 +32,7 @@ char readAccelerometer()
 		x = (data[0]<<6)+(data[1]>>2);//<<6 for msb
 		y = (data[2]<<6)+(data[3]>>2);
 		z = (data[4]<<6)+(data[5]>>2);
-		val= (2048 - (abs(z)));// 2048 = LSB/g
+		val= (2048 - (abs(z)));// 2048 = LSB/g abs() for subtraction
 	return (char)val;
 }
 
